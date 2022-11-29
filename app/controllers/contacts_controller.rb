@@ -1,15 +1,17 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all
+    @contacts = policy_scope(Contact)
+
   end
 
   def show
-    authorize @contact
     @contact = Contact.find(params[:id])
+    authorize @contact
   end
 
   def new
     @contact = Contact.new
+    @contact.household_id = current_user.household_id
     authorize @contact
   end
 
