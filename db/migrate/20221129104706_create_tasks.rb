@@ -7,7 +7,7 @@ class CreateTasks < ActiveRecord::Migration[7.0]
       t.string :type
       t.string :comments
       t.date :due_date
-      t.references :kid, null: false, foreign_key: true
+      t.references :kid, foreign_key: true
       t.boolean :status
       t.string :assigned_to
       t.references :category, null: false, foreign_key: true
