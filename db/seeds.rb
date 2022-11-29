@@ -8,7 +8,7 @@
 
 require "faker"
 
-puts "destorying db"
+puts "destroying db"
 Contact.destroy_all
 Kid.destroy_all
 Task.destroy_all
@@ -33,14 +33,14 @@ users = [linus, linus_partner, pauline, pauline_partner, balazs, balazs_partner]
 # 30 CONTACTS
 puts "creating contacts"
 30.times do
-  Contact.create(name: Faker::Name, phone: Faker::PhoneNumber, address: Faker::Address, household: [berlin_household, budapest_household, brussels_household].sample)
+  Contact.create(name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number, address: Faker::Address.full_address, household: [berlin_household, budapest_household, brussels_household].sample)
 end
 
 # 7 KIDS
 puts "creating kids"
 kids = []
 7.times do
-  new_kid = Kid.create(name: Faker::Name, household: [berlin_household, budapest_household, brussels_household].sample)
+  new_kid = Kid.create(name: Faker::Name.name, household: [berlin_household, budapest_household, brussels_household].sample)
   kids << new_kid
 end
 
@@ -53,18 +53,20 @@ maintenance = Category.create(name: "Maintenance", description: "All the mainten
 groceries = Category.create(name: "Groceries", description: "All the groceries")
 
 # 15 TASKS
-bathroom_cleaning = Task.create(name: "Clean bathroom", points: "10p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-pick_up_kid = Task.create(name: "Pick up kid from dance class", points: "8p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-make_dinner = Task.create(name: "Make dinner", points: "12p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-feed_cat = Task.create(name: "Feed Garfield", points: "3p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-bed_story = Task.create(name: "Read bed story to Kevin", points: "5p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-buy_bags_vacum_cleaner = Task.create(name: "Buy bags for vacum cleaner", points: "2p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-make_dinner = Task.create(name: "Make dinner", points: "12p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-pay_gas_bill = Task.create(name: "Pay gas bill", points: "4p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-call_plumber = Task.create(name: "Call plumber", points: "2p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-fix_kitchen_chair = Task.create(name: "Fix kitchen chair", points: "8p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-bday_gift = Task.create(name: "Buy bday gift Suzanne", points: "5p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-groceries = Task.create(name: "Groceries", points: "15p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-bake_bday_cake = Task.create(name: "Make bday cake", points: "7p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-parents_meeting = Task.create(name: "Attend parents meeting", points: "15p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
-fix_kids_coat = Task.create(name: "fix Kid's coat", points: "12p", duration: "", type: "", comments: "", category: Category.last, user: User.last, household: User.last.household)
+users.each do |user|
+  bathroom_cleaning = Task.create(name: "Clean bathroom", points:  10, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  pick_up_kid = Task.create(name: "Pick up kid from dance class", points: 18, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  make_dinner = Task.create(name: "Make dinner", points:  12, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  feed_cat = Task.create(name: "Feed Garfield", points: 13, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  bed_story = Task.create(name: "Read bed story to Kevin", points: 15, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  buy_bags_vacum_cleaner = Task.create(name: "Buy bags for vacum cleaner", points: 12, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  make_dinner = Task.create(name: "Make dinner", points:  12, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  pay_gas_bill = Task.create(name: "Pay gas bill", points: 14, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  call_plumber = Task.create(name: "Call plumber", points: 12, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  fix_kitchen_chair = Task.create(name: "Fix kitchen chair", points: 18, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  bday_gift = Task.create(name: "Buy bday gift Suzanne", points: 15, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  groceries = Task.create(name: "Groceries", points:  15, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  bake_bday_cake = Task.create(name: "Make bday cake", points: 17, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  parents_meeting = Task.create(name: "Attend parents meeting", points:  15, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+  fix_kids_coat = Task.create(name: "fix Kid's coat", points:  12, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
+end
