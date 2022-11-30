@@ -80,3 +80,6 @@ end
 
 # pundit
 gem "pundit"
+
+#Cloudinary
+gem "cloudinary"

@@ -1,0 +1,9 @@
+<%= simple_form_for @template, :url => {:action => "create"} do |f| %>
+  <%= f.input :name %>
+  <%= f.input :points %>
+  <%# <%= f.input :duration %>
+  <%= f.input :type %>
+  <%= f.input :comments %>
+  <%= f.association :category, collection: Category.all %>
+  <%= f.button :submit %>
+<% end %>
