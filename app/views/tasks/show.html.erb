@@ -10,3 +10,18 @@
 </ul>
 
 
+<li>
+<%= link_to task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+<i class="fa-solid fa-trash"></i>
+<% end %>
+</li>
+<li>
+<%= link_to tasks_path do %>
+<i class="fa-regular fa-address-book"></i>
+<% end  %>
+</li>
+<li>
+<%= link_to edit_task_path do %>
+<i class="fa-solid fa-pen"></i>
+<% end %>
+</li>
