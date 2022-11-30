@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_30_110344) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_141110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_110344) do
     t.bigint "household_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
     t.index ["household_id"], name: "index_contacts_on_household_id"
   end
 
@@ -53,7 +54,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_110344) do
     t.string "comments"
     t.date "due_date"
     t.bigint "kid_id"
-    t.boolean "status"
+    t.boolean "status", default: false
     t.bigint "assigned_to_id"
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
