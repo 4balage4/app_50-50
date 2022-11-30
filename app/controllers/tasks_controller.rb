@@ -22,12 +22,22 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
+    authorize @task
   end
 
   def update
+    @task = Task.find(params[:id])
+    authorize @task
+    @task = Task.update(task_params)
+    redirect_to tasks_path
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    authorize @task
+    @task.destroy
+    redirect_to tasks_path
   end
 
   private
