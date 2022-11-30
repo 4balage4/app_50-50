@@ -4,3 +4,19 @@
 <p><%= @contact.name  %></p>
 <p><%= @contact.phone  %></p>
 <p><%= @contact.address  %></p>
+
+<li>
+<%= link_to contact_path(@contact), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+<i class="fa-solid fa-trash"></i>
+<% end %>
+</li>
+<li>
+<%= link_to contacts_path do %>
+<i class="fa-regular fa-address-book"></i>
+<% end  %>
+</li>
+<li>
+<%= link_to edit_contact_path do %>
+<i class="fa-solid fa-pen"></i>
+<% end %>
+</li>

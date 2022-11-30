@@ -42,6 +42,7 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     authorize @contact
     @contact.destroy
+    redirect_to contacts_path, status: :see_other
   end
 
   private
