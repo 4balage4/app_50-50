@@ -54,12 +54,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_104706) do
     t.date "due_date"
     t.bigint "kid_id"
     t.boolean "status"
-    t.string "assigned_to"
+    t.bigint "assigned_to_id"
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
     t.bigint "household_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["assigned_to_id"], name: "index_tasks_on_assigned_to_id"
     t.index ["category_id"], name: "index_tasks_on_category_id"
     t.index ["household_id"], name: "index_tasks_on_household_id"
     t.index ["kid_id"], name: "index_tasks_on_kid_id"
@@ -103,6 +104,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_104706) do
   add_foreign_key "tasks", "households"
   add_foreign_key "tasks", "kids"
   add_foreign_key "tasks", "users"
+  add_foreign_key "tasks", "users", column: "assigned_to_id"
   add_foreign_key "templates", "categories"
   add_foreign_key "templates", "households"
   add_foreign_key "templates", "users"
