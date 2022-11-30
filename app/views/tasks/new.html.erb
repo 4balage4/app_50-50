@@ -1,0 +1,10 @@
+<%= simple_form_for(@task) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :points %>
+  <%# <%= f.input :duration %>
+  <%= f.input :due_date %>
+  <%= f.input :contact %>
+  <%= f.input :category %>
+  <%= f.input :assigned_to %>
+  <%= f.button :submit %>
+<% end %>

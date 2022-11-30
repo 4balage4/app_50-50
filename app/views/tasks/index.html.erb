@@ -1,6 +1,7 @@
 <h2>your households tasks</h2>
 
 <% @tasks.each do |task| %>
-  <p><%= task.name %> <%= task.household.name%> <%= task.assigned_to.nil? ? "unassigned" : task.assigned_to.username %> </p>
+  <p><%= link_to task.name, task_path(task) %> <%= task.household.name%> <%= task.assigned_to.nil? ? "unassigned" : task.assigned_to.username %> </p>
 <% end %>
-<p>we will make it clickable</p>
+
+<%= link_to "Add new", new_task_path %>

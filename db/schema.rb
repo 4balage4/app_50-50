@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_29_104706) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_30_110344) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,8 +60,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_104706) do
     t.bigint "household_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "contact_id"
     t.index ["assigned_to_id"], name: "index_tasks_on_assigned_to_id"
     t.index ["category_id"], name: "index_tasks_on_category_id"
+    t.index ["contact_id"], name: "index_tasks_on_contact_id"
     t.index ["household_id"], name: "index_tasks_on_household_id"
     t.index ["kid_id"], name: "index_tasks_on_kid_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
@@ -101,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_29_104706) do
   add_foreign_key "contacts", "households"
   add_foreign_key "kids", "households"
   add_foreign_key "tasks", "categories"
+  add_foreign_key "tasks", "contacts"
   add_foreign_key "tasks", "households"
   add_foreign_key "tasks", "kids"
   add_foreign_key "tasks", "users"
