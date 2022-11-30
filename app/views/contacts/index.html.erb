@@ -1,4 +1,14 @@
 <h1>All contacts</h1>
+
+<%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "find contact"
+  %>
+  <%= submit_tag "Search", class: "btn btn-primary" %>
+<% end %>
+
 <% @contacts.each do |contact| %>
   <%= link_to contact_path(contact) do %>
     <p><%= contact.title %></p>

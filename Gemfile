@@ -80,3 +80,6 @@ end
 
 # pundit
 gem "pundit"
+
+# search
+gem "pg_search"

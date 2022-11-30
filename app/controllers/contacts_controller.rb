@@ -1,7 +1,12 @@
 class ContactsController < ApplicationController
   def index
     @contacts = policy_scope(Contact)
-
+    if params[:query].present?
+      sql_query = "title ILIKE :query OR name ILIKE :query"
+      @contacts = Contact.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @contacts = policy_scope(Contact)
+    end
   end
 
   def show
