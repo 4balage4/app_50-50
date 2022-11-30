@@ -18,7 +18,11 @@ class TasksController < ApplicationController
     @task.user = current_user
     @task.household = current_user.household
     authorize @task
-    @task.save!
+    if @task.save!
+      redirect_to tasks_path
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
@@ -29,8 +33,12 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     authorize @task
-    @task = Task.update(task_params)
-    redirect_to tasks_path
+    @task.update(task_params)
+    if @task.save!
+      redirect_to tasks_path
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
@@ -43,6 +51,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :points, :duration, :type, :comments, :due_date, :status, :assigned_to, :category)
+    params.require(:task).permit(:name, :points, :duration, :type, :comments, :due_date, :status, :assigned_to_id, :category_id)
   end
 end

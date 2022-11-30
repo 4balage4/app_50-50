@@ -4,7 +4,7 @@
   <%# <%= f.input :duration %>
   <%= f.input :due_date %>
   <%= f.input :contact %>
-  <%= f.input :category, collection: Category.all %>
-  <%= f.input :assigned_to %>
+  <%= f.association :category, collection: Category.all %>
+  <%= f.association :assigned_to, collection: User.where(household: current_user.household).map{ |user| [user.username, user.id]}%>
   <%= f.button :submit %>
 <% end %>

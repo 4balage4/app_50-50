@@ -15,6 +15,7 @@ Task.destroy_all
 Template.destroy_all
 User.destroy_all
 Household.destroy_all
+Category.destroy_all
 
 # 3 HOUSEHOLDS
 berlin_household = Household.create(name: "Berlin")
