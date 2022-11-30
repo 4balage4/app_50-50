@@ -5,12 +5,13 @@ class TaskPolicy < ApplicationPolicy
       scope.all.where(household: user.household)
     end
   end
+
   def show?
     true
   end
 
   def create?
-    user
+    true
   end
 
   def update?
