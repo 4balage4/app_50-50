@@ -1,9 +1,13 @@
 <h1> Contact details </h1>
 
+<p><%= @contact.title  %></p>
 
 <p><%= @contact.name  %></p>
 <p><%= @contact.phone  %></p>
 <p><%= @contact.address  %></p>
+
+<a class="btn btn-primary" href="https://www.google.at/maps/place/<%=@contact.address %>
+" target="blank"> </a>
 
 <li>
 <%= link_to contact_path(@contact), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>

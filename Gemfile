@@ -81,5 +81,10 @@ end
 # pundit
 gem "pundit"
 
+
 #Cloudinary
 gem "cloudinary"
+
+# search
+gem "pg_search"
+
