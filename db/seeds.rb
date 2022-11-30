@@ -34,7 +34,7 @@ users = [linus, linus_partner, pauline, pauline_partner, balazs, balazs_partner]
 # 30 CONTACTS
 puts "creating contacts"
 30.times do
-  Contact.create(name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number, address: Faker::Address.full_address, household: [berlin_household, budapest_household, brussels_household].sample)
+  Contact.create(title: Faker::Job.title, name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number, address: Faker::Address.full_address, household: [berlin_household, budapest_household, brussels_household].sample)
 end
 
 # 7 KIDS
