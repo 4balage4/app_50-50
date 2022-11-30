@@ -9,7 +9,12 @@ class TasksController < ApplicationController
   end
 
   def new
-    @task = Task.new
+    if params[:template_id]
+      @template = Template.find(params[:template_id])
+      @task = Task.new(name: @template.name, points: @template.points, duration: @template.duration, comments: @template.comments, type: @template.type, category: @template.category)
+    else
+      @task = Task.new
+    end
     authorize @task
   end
 
@@ -39,6 +44,11 @@ class TasksController < ApplicationController
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def duplicate
+    @task = Task.find(params[:id]).dup
+    authorize @task
   end
 
   def destroy

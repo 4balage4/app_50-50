@@ -1,0 +1,25 @@
+<h4><%=@template.name %></h4>
+<ul>
+  <li>points: <%=@template.points %></li>
+  <li>duration: <%=@template.duration %></li>
+  <li>comments: <%=@template.comments %></li>
+  <li>category: <%=@template.category %></li>
+</ul>
+
+<li>
+<%= link_to template_path(@template), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+<i class="fa-solid fa-trash"></i>
+<% end %>
+</li>
+<li>
+<%= link_to templates_path do %>
+<i class="fa-regular fa-address-book"></i>
+<% end  %>
+</li>
+<li>
+<%= link_to edit_template_path do %>
+<i class="fa-solid fa-pen"></i>
+<% end %>
+</li>
+
+<%= link_to "create task from template", new_template_task_path(@template) %>

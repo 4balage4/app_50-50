@@ -1,0 +1,9 @@
+<h1>Edit <%=@template.name %> template</h1>
+
+<%= simple_form_for @template do |f| %>
+  <%= f.input :name %>
+  <%= f.input :points %>
+  <%# <%= f.input :duration %>
+  <%= f.association :category, collection: Category.all %>
+  <%= f.button :submit %>
+<% end %>
