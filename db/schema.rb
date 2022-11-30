@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_30_110344) do
     t.string "comments"
     t.date "due_date"
     t.bigint "kid_id"
-    t.boolean "status", default: false
+    t.boolean "status"
     t.bigint "assigned_to_id"
     t.bigint "category_id", null: false
     t.bigint "user_id", null: false
