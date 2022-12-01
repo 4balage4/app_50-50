@@ -9,9 +9,9 @@
 require "faker"
 
 puts "destroying db"
+Task.destroy_all
 Contact.destroy_all
 Kid.destroy_all
-Task.destroy_all
 Template.destroy_all
 User.destroy_all
 Household.destroy_all
@@ -54,6 +54,7 @@ maintenance = Category.create(name: "Maintenance", description: "All the mainten
 groceries = Category.create(name: "Groceries", description: "All the groceries")
 
 # 15 TASKS
+puts "creating users"
 users.each do |user|
   household_options = user.household.users
   # household_options << "nil"
@@ -74,6 +75,7 @@ users.each do |user|
   fix_kids_coat = Task.create(name: "fix Kid's coat", points: 12, duration: "", type: "", comments: "", category: Category.all.sample, user: user, household: user.household)
 end
 
+puts "creating templates"
 # TEMPLATES - DO NOT DELETE
   # CARE TEMPLATES
 cooking = Template.create(name: "Cooking", category: care, household: berlin_household, user: User.all.sample)
@@ -184,3 +186,5 @@ buy_cleaning_supplies = Template.create(name: "Buy cleaning supplies", category:
 check_cleaning_supplies = Template.create(name: "Check stock cleaning supplies", category: paperwork, household: budapest_household, user: User.all.sample)
 # GROCERIES TEMPLATES
 weekly_shopping = Template.create(name: "Weekly groceries", category: paperwork, household: brussels_household, user: User.all.sample)
+
+puts "seed is over"
