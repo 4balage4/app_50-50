@@ -3,13 +3,13 @@
 
 <div class="container">
   <div>
-    <ul class="list-group list-group-flush">
-      <% @tasks.each do |task| %>
-        <%= link_to task_path(task) do %>
-        <li class="list-group-item">
-        <strong><%= task.name %></strong> <%= task.household.name%> <strong><%= task.assigned_to.nil? ? "unassigned" : task.assigned_to.username %> </strong> </li>
-        <% end %>
+    <% @tasks.each do |task| %>
+     <div class="row">
+      <%= link_to task_path(task) do %>
+      <div class="list-group-item">
+      <strong><%= task.name %></strong> <%= task.household.name%> <strong><%= task.assigned_to.nil? ? "unassigned" : task.assigned_to.username %> </strong> </div>
       <% end %>
-    </ul>
+    <% end %>
+    </div>
   </div>
 </div>
