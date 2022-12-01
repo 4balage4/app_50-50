@@ -5,12 +5,13 @@
   <li>duration: <%=@task.duration %></li>
   <li>comments: <%=@task.comments %></li>
   <li>due_date: <%=@task.due_date %></li>
-  <%# <li>contact: <%=@task.contact.title %>
-    <%# <ul> %>
-      <%# <li> name: <%= @task.contact.name %> <%# </li>
-      <%# <li>address: <%= @task.contact.address %> <%#</li> %>
-      <%# <li>phone number: <%= @task.contact.phone %> <%#</li> %>
-    <%# </ul></li> %>
+  <li>contact: <%=@task.contact.nil? ? "" : @task.contact.title %>
+    <ul>
+      <li> name: <%= @task.contact.nil? ? "" : @task.contact.name  %> </li>
+      <li>address: <%= @task.contact.nil? ? "" : @task.contact.address %></li>
+      <li>phone number: <%= @task.contact.nil? ? "" : @task.contact.phone %></li>
+    </ul></li>
+
   <li>category: <%=@task.category.name %></li>
   <li>assigned to: <%= @task.assigned_to.nil? ? "unassigned" : @task.assigned_to.username %></li>
 </ul>
