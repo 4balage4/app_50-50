@@ -1,15 +1,15 @@
 <h2>your households tasks</h2>
 <%= link_to "Add new", new_task_path %>
 
-<div class="container">
+<div class="container p-2">
   <div>
-     <div class="row">
+    <%# <div class="row"> %>
       <% @tasks.each do |task| %>
-      <%= link_to task_path(task) do %>
-      <div class="list-group-item">
-      <strong><%= task.name %></strong> <%= task.household.name%> <strong><%= task.assigned_to.nil? ? "unassigned" : task.assigned_to.username %> </strong> </div>
+        <%= link_to task_path(task), class: "task-card" do %>
+            <h4><%= task.name %></h4>
+            <p><%= task.points %></p>
+        <% end %>
       <% end %>
-    <% end %>
-    </div>
+    <%# </div> %>
   </div>
 </div>
