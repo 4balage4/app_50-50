@@ -1,7 +1,9 @@
-<h2>your households tasks</h2>
-<%= link_to "Add new", new_task_path %>
-
-<div class="container p-2">
+<div class="container welcome-message">
+  <%# <div class="welcome-message"> %>
+  <%# </div> %>
+  <h1>Hello <%= current_user.username %>!</h1>
+</div>
+<div class="container pl-2">
   <div>
     <%# <div class="row"> %>
       <% @tasks.each do |task| %>
