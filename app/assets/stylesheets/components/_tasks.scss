@@ -1,0 +1,22 @@
+.task-card {
+  background: #8C9EFF;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px auto 12px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+
+  h4 {
+    font-family: 'Poppins';
+    font-size: 16px;
+    color: #000000;
+    margin: 4px;
+  }
+
+  p{
+    font-weight: lighter;
+    color: grey;
+    margin: 2px;
+  }
+}
