@@ -11,9 +11,15 @@
     <%= f.association :contact, collection: Contact.where(household: current_user.household).map {|contact|[contact.title, contact.id]} %>
     <%= f.association :category, collection: Category.all %>
     <%= f.association :assigned_to, collection: User.where(household: current_user.household).map{ |user| [user.username, user.id]}%>
-    <%= f.submit :"Create new task", :class => "create" %>
+    <div class="d-flex w-100 justify-content-around align-items-center">
+      <%= link_to templates_path do %><i class="fa-solid fa-arrow-left fa-lg"></i>
+      <% end  %>
+        <%= f.submit :"Save", :class => "create" %>
+      <%= link_to templates_path do %><i class="fa-solid fa-trash-can fa-lg"></i>
+      <% end  %></div>
   <% end %>
 </div>
+
 
 
 <%#= f.input :subdomain, input_wrapper_html: { class: 'col-sm-4' } %>
