@@ -10,20 +10,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Major+Mono+Display&display=swap" rel="stylesheet">
-    
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
     <div class="wrapper">
-      <div>
-        <%= yield %>
-        <%= render "shared/flashes" %>
-      </div>
+
+      <%= yield %>
+      <%= render "shared/flashes" %>
+
+    </div>
       <div>
         <%= render "shared/navbar" %>
       </div>
-    </div>
   </body>
 </html>

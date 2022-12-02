@@ -1,5 +1,7 @@
-<div class="container">
-  <h2 class="text-center mt-3"> Contacts </h2>
+<div class="container welcome-message">
+  <h1>Our contacts </h1>
+</div>
+<div class="container pl-2 overflow-fix">
   <div class="search">
       <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
@@ -12,14 +14,12 @@
   </div>
   <div class="list-contacts">
     <% @contacts.each do |contact| %>
-      <%= link_to contact_path(contact) do %>
-        <div class="contact-item">
+      <%= link_to contact_path(contact), class:"contact-item" do %>
           <p><%= contact.title %></p>
-        </div>
       <% end %>
     <% end %>
-  </div>
-  <div class="container text-center">
+  <div class="text-center">
     <%= link_to "Add Contact", new_contact_path, class: "btn btn-add" %>
+  </div>
   </div>
 </div>
