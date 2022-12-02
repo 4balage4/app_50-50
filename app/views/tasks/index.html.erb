@@ -3,13 +3,13 @@
   <%# </div> %>
   <h1>Hello <%= current_user.username %>!</h1>
 </div>
-<div class="container pl-2">
+<div class="container pl-2 overflow-fix">
   <div>
     <%# <div class="row"> %>
       <% @tasks.each do |task| %>
         <%= link_to task_path(task), class: "task-card" do %>
             <h4><%= task.name %></h4>
-            <p><%= task.points %></p>
+            <p><%= task.points %>p</p>
         <% end %>
       <% end %>
     <%# </div> %>
