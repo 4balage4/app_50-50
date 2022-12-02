@@ -1,8 +1,8 @@
 <h1> Contact details </h1>
 
 <p><%= @contact.title  %></p>
-
 <p><%= @contact.name  %></p>
+
 <p><%= @contact.phone  %></p>
 <p><%= @contact.address  %></p>
 
@@ -10,17 +10,38 @@
 " target="blank"> </a>
 
 <li>
-<%= link_to contact_path(@contact), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-<i class="fa-solid fa-trash"></i>
-<% end %>
-</li>
 <li>
 <%= link_to contacts_path do %>
 <i class="fa-regular fa-address-book"></i>
 <% end  %>
 </li>
 <li>
-<%= link_to edit_contact_path do %>
-<i class="fa-solid fa-pen"></i>
-<% end %>
-</li>
+
+
+
+
+<div class="container text-center">
+  <div class="card" style="width: 18rem;">
+    <%# <img src="..." class="card-img-top" alt="..."> %>
+    <div class="card-body">
+      <h5 class="card-title"><%= @contact.title  %></h5>
+      <%# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> %>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><%= @contact.name  %></li>
+      <li class="list-group-item"><%= @contact.phone  %></li>
+      <li class="list-group-item"><%= @contact.address  %></li>
+    </ul>
+    <div class="card-body space-around">
+      <a href="#" class="card-link"></a>
+      <a href="#" class="card-link"></a>
+        <%= link_to edit_contact_path do %>
+        <i class="fa-solid fa-pen"></i>
+        <% end %>
+        <%= link_to contact_path(@contact), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <i class="fa-solid fa-trash"></i>
+        <% end %>
+
+    </div>
+  </div>
+</div>

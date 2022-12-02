@@ -10,7 +10,15 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
 @import "components/task_form";
 
 @import "flatpickr/dist/flatpickr";
 @import "flatpickr/dist/themes/airbnb";
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
+}

@@ -1,17 +1,25 @@
-<h1>All contacts</h1>
-
-<%= link_to "New Contact", new_contact_path, class: "btn btn-primary " %>
-<%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control",
-    placeholder: "find contact"
-  %>
-  <%= submit_tag "Search", class: "btn btn-primary" %>
-<% end %>
-
-<% @contacts.each do |contact| %>
-  <%= link_to contact_path(contact) do %>
-    <p><%= contact.title %></p>
-  <% end %>
-<% end %>
+<div class="container">
+  <h2 class="text-center mt-3"> Contacts </h2>
+  <div class="search">
+      <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "find contact"
+        %>
+        <%= submit_tag "Search", class: "btn btn-flat" %>
+      <% end %>
+  </div>
+  <div class="list-contacts">
+    <% @contacts.each do |contact| %>
+      <%= link_to contact_path(contact) do %>
+        <div class="contact-item">
+          <p><%= contact.title %></p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="container text-center">
+    <%= link_to "Add Contact", new_contact_path, class: "btn btn-add" %>
+  </div>
+</div>
