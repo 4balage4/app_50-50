@@ -12,14 +12,24 @@
   <%= link_to tasks_path do %>
     <i class="fa-solid fa-calendar-days"></i>
   <% end  %>
-    <%= link_to tasks_path do %>
-      <i class="fa-solid fa-circle-plus"></i>
-    <% end  %>
+
+<% if current_page?(controller:'tasks',action: 'new') %>
+  <%= link_to new_task_path, class: "active" do %>
+    <i class="fa-solid fa-circle-plus"></i>
+  <% else %>
+  <%= link_to new_task_path do %>
+    <i class="fa-solid fa-circle-plus"></i>
+  <% end %>
+<% end  %>
 
   <% if current_page?(controller:'contacts',action: 'index') %>
     <%= link_to contacts_path, class: "active" do %>
       <i class="fa-solid fa-address-book"></i>
     <% end  %>
+  <% else %>
+    <%= link_to tasks_path do %>
+      <i class="fa-solid fa-address-book"></i>
+    <% end %>
   <% end  %>
 
   <%= link_to tasks_path do %>
