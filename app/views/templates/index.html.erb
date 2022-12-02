@@ -7,7 +7,7 @@
     <% @templates.each do |template| %>
       <%= link_to template_path(template), class: "task-card" do %>
         <h4><%= template.name %></h4>
-        <p><%= template.points %></p>
+        <p><%= template.points ? "#{template.points}p" : ""%></p>
       <% end %>
     <% end %>
   </div>
