@@ -11,6 +11,11 @@
 @import "components/index";
 @import "pages/index";
 
+@import "components/task_form";
+
+@import "flatpickr/dist/flatpickr";
+@import "flatpickr/dist/themes/airbnb";
+
 .wrapper {
   display: flex;
   justify-content: space-between;

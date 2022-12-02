@@ -1,5 +1,6 @@
-<div class="container welcome-message">
-    <h1>New Task</h1>
+<div class="card">
+  <h2 class="header">New Task</h2>
+  <div class="input_rows">
+    <%= render "form", task: @task %>
+  </div>
 </div>
-
-<%= render "form", task: @task %>
