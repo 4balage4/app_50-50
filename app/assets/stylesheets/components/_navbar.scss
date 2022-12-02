@@ -8,10 +8,14 @@
 
 .navbar a {
   text-decoration: none;
-  color: #8C9EFF;
-  opacity: 50%;
+  color: #5870CB;
+  opacity: 100%;
 }
 
 .active {
-  opacity: 100% !important;
+  opacity: 75% !important;
+}
+
+a {
+  font-size: 35px;
 }
