@@ -12,17 +12,13 @@
     <%= f.association :category, collection: Category.all %>
     <%= f.association :assigned_to, collection: User.where(household: current_user.household).map{ |user| [user.username, user.id]}%>
     <div class="d-flex w-100 justify-content-around align-items-center">
-      <%= link_to templates_path do %><i class="fa-solid fa-arrow-left fa-lg"></i>
+      <%= link_to templates_path do %><i class="form-button fa-solid fa-chevron-left fa-lg"></i>
       <% end  %>
-        <%= f.submit :"Save", :class => "create" %>
-      <%= link_to templates_path do %><i class="fa-solid fa-trash-can fa-lg"></i>
+        <%= f.submit :"Save", class: "btn btn-add mt-1" %>
+      <%= link_to templates_path do %><i class="form-button fa-solid fa-trash fa-lg"></i>
       <% end  %></div>
   <% end %>
 </div>
-
-
-
-
 
 
 

@@ -1,5 +1,5 @@
-<div class="container">
-  <h2 class="text-center mt-3"> Contacts </h2>
+  <div class="card">
+  <h2 class="header">New Contact</h2>
   <div class="search">
       <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
@@ -22,4 +22,3 @@
   <div class="container text-center">
     <%= link_to "Add Contact", new_contact_path, class: "btn btn-add" %>
   </div>
-</div>
