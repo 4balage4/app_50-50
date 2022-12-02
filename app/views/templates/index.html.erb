@@ -1,7 +1,16 @@
-<h2>templates</h2>
+<div class="container welcome-message">
+  <h1>templates</h1>
+</div>
 
-<% @templates.each do |template| %>
-  <p><%= link_to template.name, template_path(template) %> <%= template.points %>p</p>
-<% end %>
+<div class="container pl-2">
+  <div>
+    <% @templates.each do |template| %>
+      <%= link_to template_path(template), class: "task-card" do %>
+        <h4><%= template.name %></h4>
+        <p><%= template.points %></p>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
 <%= link_to "Add new", new_template_path %>

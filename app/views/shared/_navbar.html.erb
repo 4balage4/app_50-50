@@ -1,40 +1,47 @@
-<div class="navbar">
-  <% if current_page?(controller:'pages',action: 'home') %>
-    <%= link_to tasks_path, class: "active" do %>
-      <i class="fa-solid fa-list-check"></i>
-    <% end %>
-  <% else %>
-    <%= link_to tasks_path do %>
-      <i class="fa-solid fa-list-check"></i>
-    <% end %>
-  <% end  %>
-
+<div class="navbar fixed-bottom">
+  <% if current_user %>
+    <% if current_page?(controller:'tasks',action: 'index') %>
+      <%= link_to tasks_path, class: "active" do %>
+        <i class="fa-solid fa-list-check"></i>
+      <% end %>
+    <% else %>
+      <%= link_to tasks_path do %>
+        <i class="fa-solid fa-list-check"></i>
+      <% end %>
+    <% end  %>
+    
   <%= link_to templates_path do %>
     <i class="fa-regular fa-calendar-plus"></i>
     <%# <i class="fa-solid fa-calendar-days"></i> %>
-  <% end  %>
+    <% end  %>
 
-  <% if current_page?(controller:'tasks',action: 'new') %>
-    <%= link_to new_task_path, class: "active" do %>
-      <i class="fa-solid fa-circle-plus"></i>
-    <% end %>
-  <% else %>
-    <%= link_to new_task_path do %>
-      <i class="fa-solid fa-circle-plus"></i>
-    <% end %>
-  <% end  %>
+    <% if current_page?(controller:'tasks',action: 'new') %>
+      <%= link_to new_task_path, class: "active" do %>
+        <i class="fa-solid fa-circle-plus"></i>
+      <% end %>
+    <% else %>
+      <%= link_to new_task_path do %>
+        <i class="fa-solid fa-circle-plus"></i>
+      <% end %>
+    <% end  %>
 
-  <% if current_page?(controller:'contacts',action: 'index') %>
-    <%= link_to contacts_path, class: "active" do %>
-      <i class="fa-solid fa-address-book"></i>
+
+    <% if current_page?(controller:'contacts',action: 'index') %>
+      <%= link_to contacts_path, class: "active" do %>
+        <i class="fa-solid fa-address-book"></i>
+      <% end  %>
+    <% else %>
+      <%= link_to contacts_path do %>
+        <i class="fa-solid fa-address-book"></i>
+      <% end %>
+    <% end  %>
+
+    <%= link_to tasks_path do %>
+      <i class="fa-solid fa-chart-column"></i>
     <% end  %>
   <% else %>
-    <%= link_to tasks_path do %>
-      <i class="fa-solid fa-address-book"></i>
-    <% end %>
-  <% end  %>
-
-  <%= link_to tasks_path do %>
-    <i class="fa-solid fa-chart-column"></i>
-  <% end  %>
+    <%= link_to new_user_session_path do %>
+      <i class="fa-solid fa-arrow-right-to-bracket"></i>
+    <% end  %>
+  <% end %>
 </div>
