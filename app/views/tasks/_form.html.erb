@@ -1,19 +1,29 @@
 <div class="row">
   <%= simple_form_for(@task) do |f| %>
-    <%= f.input :name, input_wrapper_html: { class: 'col-sm-4' } %>
+    <%= f.input :name, input_wrapper_html: { class: 'col-sm-4 text-left' } %>
     <%= f.input :points %>
       <div class="col">
         <%= f.input :due_date, as: :string,
                     wrapper_html: { class: "mb-4" },
-                    label_html: { class: "form-label text-secondary" },
+                    label_html: { class: "w-100 text-left" },
                     input_html: { data: { controller: "flatpickr" } } %>
       </div>
     <%= f.association :contact, collection: Contact.where(household: current_user.household).map {|contact|[contact.title, contact.id]} %>
     <%= f.association :category, collection: Category.all %>
     <%= f.association :assigned_to, collection: User.where(household: current_user.household).map{ |user| [user.username, user.id]}%>
-    <%= f.submit :"Create new task", :class => "create" %>
+    <div class="d-flex w-100 justify-content-around align-items-center">
+      <%= link_to templates_path do %><i class="form-button fa-solid fa-chevron-left fa-lg"></i>
+      <% end  %>
+        <%= f.submit :"Save", class: "btn btn-add mt-1" %>
+      <%= link_to templates_path do %><i class="form-button fa-solid fa-trash fa-lg"></i>
+      <% end  %></div>
   <% end %>
 </div>
+
+
+
+
+
 
 
 <%#= f.input :subdomain, input_wrapper_html: { class: 'col-sm-4' } %>
