@@ -1,41 +1,60 @@
 <div class="container task-details-header">
-    <h1>Task details</h1>
+  <h1>Task details</h1>
 </div>
 
-<h4><%=@task.status %></h4>
-<h4><%=@task.name %></h4>
-<ul>
-  <li>points: <%=@task.points %></li>
-  <li>duration: <%=@task.duration %></li>
-  <li>comments: <%=@task.comments %></li>
-  <li>due_date: <%=@task.due_date %></li>
-  <li>contact: <%=@task.contact.nil? ? "" : @task.contact.title %>
+<div class= "main-card">
+  <div class="task-name-card">
+    <h4><%= @task.name %></h4>
+    <p><%= @task.points %></p>
+  </div>
+
+  <div class="task-details">
+    <%= link_to edit_task_path do %>
+      <i class="fa-solid fa-pen"></i>
+    <% end %>
     <ul>
-      <li> name: <%= @task.contact.nil? ? "" : @task.contact.name  %> </li>
-      <li>address: <%= @task.contact.nil? ? "" : @task.contact.address %></li>
-      <li>phone number: <%= @task.contact.nil? ? "" : @task.contact.phone %></li>
-    </ul></li>
+      <li>points: <span class="detail"><%= @task.points %></span>
+    <div class="detail">
+      <li>duration: <%=@task.duration %></li>
+    </div>
+    <div class="detail">
+      <li>comments: <%=@task.comments %></li>
+    </div>
+    <div class="detail">
+      <li>due_date: <%=@task.due_date %></li>
+    </div>
+    <div class="detail">
+      <li>contact: <%=@task.contact.nil? ? "" : @task.contact.title %>
+      <ul>
+        <li> name: <%= @task.contact.nil? ? "" : @task.contact.name  %> </li>
+        <li>address: <%= @task.contact.nil? ? "" : @task.contact.address %></li>
+        <li>phone number: <%= @task.contact.nil? ? "" : @task.contact.phone %></li>
+      </ul>
+      </li>
+    </div>
+    <div class="detail">
+      <li>category: <%=@task.category.name %></li>
+    </div>
+    <div class="detail">
+      <li>assigned to: <%= @task.assigned_to.nil? ? "unassigned" : @task.assigned_to.username %></li>
+    </div>
+    </ul>
+  </div>
+</div>
 
-  <li>category: <%=@task.category.name %></li>
-  <li>assigned to: <%= @task.assigned_to.nil? ? "unassigned" : @task.assigned_to.username %></li>
-</ul>
+<div>
+  <li>
+  <%= link_to task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+  <i class="fa-solid fa-trash"></i>
+  <% end %>
+  </li>
+  <li>
+  <%= link_to tasks_path do %>
+  <i class="fa-regular fa-address-book"></i>
+  <% end  %>
+  </li>
 
 
-<li>
-<%= link_to task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-<i class="fa-solid fa-trash"></i>
-<% end %>
-</li>
-<li>
-<%= link_to tasks_path do %>
-<i class="fa-regular fa-address-book"></i>
-<% end  %>
-</li>
-<li>
-<%= link_to edit_task_path do %>
-<i class="fa-solid fa-pen"></i>
-<% end %>
-</li>
-
-<%= link_to "create template", new_task_template_path(@task) %>
-<%= link_to "duplicate", duplicate_task_path(@task) %>
+  <%= link_to "create template", new_task_template_path(@task) %>
+  <%= link_to "duplicate", duplicate_task_path(@task) %>
+</div>
