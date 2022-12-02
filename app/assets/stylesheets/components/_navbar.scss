@@ -4,18 +4,14 @@
   background: #A5FAEA;
   align-items: center;
   height: 60px;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: #5870CB;
-  opacity: 100%;
+  a {
+    font-size: 35px;
+    text-decoration: none;
+    color: #5870CB;
+    opacity: 100%;
+  }
 }
 
 .active {
   opacity: 75% !important;
-}
-
-a {
-  font-size: 35px;
 }

@@ -1,8 +1,8 @@
 <div class="container welcome-message">
-  <h1>templates</h1>
+  <h1>My templates</h1>
 </div>
 
-<div class="container pl-2">
+<div class="container pl-2 overflow-fix">
   <div>
     <% @templates.each do |template| %>
       <%= link_to template_path(template), class: "task-card" do %>
@@ -11,6 +11,7 @@
       <% end %>
     <% end %>
   </div>
+  <div class="text-center">
+    <%= link_to "Add new", new_template_path, class: "btn btn-add" %>
+  </div>
 </div>
-
-<%= link_to "Add new", new_template_path %>
