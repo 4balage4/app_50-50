@@ -5,5 +5,7 @@
   <%= f.input :type %>
   <%= f.input :comments %>
   <%= f.association :category, collection: Category.all %>
-  <%= f.button :submit %>
+  <div class="d-flex justify-content-center">
+    <%= f.button :submit, class: "btn btn-add"%>
+  </div>
 <% end %>
