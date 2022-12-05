@@ -10,6 +10,11 @@ class TaskPolicy < ApplicationPolicy
     true
   end
 
+  def score?
+    true
+  end
+
+
   def mark_as_done?
     true
   end

@@ -16,6 +16,12 @@ class TasksController < ApplicationController
     redirect_to tasks_path
   end
 
+  def score
+    @tasks = current_user.tasks.where(done: true)
+    authorize @tasks
+    #@tasks.pluck(:points)
+  end
+
   def new
     if params[:template_id]
       @template = Template.find(params[:template_id])
