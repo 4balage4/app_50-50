@@ -4,8 +4,14 @@
 
 import { application } from "./application"
 
+import FilterTasksController from "./filter_tasks_controller"
+application.register("filter-tasks", FilterTasksController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import MarkController from "./mark_controller"
+application.register("mark", MarkController)
