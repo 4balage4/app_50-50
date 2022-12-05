@@ -1,25 +1,37 @@
-<h4><%=@template.name %></h4>
-<ul>
-  <li>points: <%=@template.points %></li>
-  <li>duration: <%=@template.duration %></li>
-  <li>comments: <%=@template.comments %></li>
-  <li>category: <%=@template.category %></li>
-</ul>
+<div class="container template-details-header">
+  <h1>Template details</h1>
+</div>
 
-<li>
-<%= link_to template_path(@template), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-<i class="fa-solid fa-trash"></i>
-<% end %>
-</li>
-<li>
-<%= link_to templates_path do %>
-<i class="fa-regular fa-address-book"></i>
-<% end  %>
-</li>
-<li>
-<%= link_to edit_template_path do %>
-<%# <i class="fa-solid fa-pen"></i> %>
-<% end %>
-</li>
+<div class="container">
+  <div class= "main-card">
+    <div class="template-name-card">
+      <h4><%= @template.name %></h4>
+    </div>
+    <div class="template-details">
+      <ul>
+        <li>Points: <span class="detail"><%=@template.points %></span></li>
+        <li>Duration: <span class="detail"><%=@template.duration %></span></li>
+        <li>Comments: <span class="detail"><%=@template.comments %></span></li>
+        <li>Category: <span class="detail"><%=@template.category.name %></span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="bottom-buttons">
+    <div class="bottom-button">
+      <%= button_to "Create task from template", new_template_task_path(@template), class: "btn-flat"%>
+    </div>
+    <div class="bottom-icons">
+      <%= link_to template_path(@template), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-solid fa-trash"></i>
+      <% end %>
+      <%= link_to templates_path do %>
+      <i class="fa-regular fa-address-book"></i>
+      <% end  %>
+      <%= link_to edit_template_path do %>
+      <i class="fa-solid fa-pen"></i>
+      <% end %>
+    </div>
 
-<%= link_to "create task from template", new_template_task_path(@template) %>
+  </div>
+  <div style="height: 60px"></div>
+</div>
