@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :tasks do
     get :duplicate, on: :member
     resources :templates, only: [:new, :create]
-  end # Defines the root path route ("/")
+  end
+  # Defines the root path route ("/")
+  post "tasks/:id/mark_as_done", to: "tasks#mark_as_done", as: :mark_as_done
+
   resources :templates do
     resources :tasks, only: [:new, :create]
   end
