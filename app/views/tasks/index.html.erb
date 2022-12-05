@@ -1,6 +1,76 @@
 <div class="container welcome-message">
   <h1>Hello <%= current_user.username %>!</h1>
 </div>
+
+<div data-controller="filter-tasks">
+  <div class="container d-flex justify-content-center flex-grow mt-3">
+    <div class="button-box">
+      <div class="btn btn-menu">
+        <p data-action="click->filter-tasks#show" class="all"> all</p>
+      </div>
+      <div class="btn btn-menu">
+        <p data-action="click->filter-tasks#show" class="user"> <%= current_user.username %></p>
+      </div>
+      <div class="btn btn-menu">
+        <p data-action="click->filter-tasks#show" class="partner"><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username %></p>
+      </div>
+      <div class="btn btn-menu">
+        <p data-action="click->filter-tasks#show" class="open"> open</p>
+      </div>
+    </div>
+  </div>
+  <div data-filter-tasks-target="allTasks" class="container pl-2 overflow-fix">
+    <p>all tasks</p>
+    <div>
+      <% @tasks.each do |task| %>
+        <%= link_to task_path(task), class: "task-card" do %>
+          <h4><%= task.name %></h4>
+          <p><%= task.points %>p</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-filter-tasks-target="currentUser" class="container pl-2 overflow-fix d-none">
+      <p>my tasks</p>
+    <div>
+      <% @tasks.where(assigned_to: current_user).each do |task| %>
+        <%= link_to task_path(task), class: "task-card" do %>
+          <h4><%= task.name %> <strong><%= task.assigned_to.username %></strong></h4>
+          <p><%= task.points %>p</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-filter-tasks-target="userPartner" class="container pl-2 overflow-fix d-none">
+      <p>partner task</p>
+    <div>
+      <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).each do |task| %>
+        <%= link_to task_path(task), class: "task-card" do %>
+          <h4><%= task.name %></h4>
+          <p><%= task.points %>p</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div data-filter-tasks-target="unassigned" class="container pl-2 overflow-fix d-none">
+      <p>open tasks</p>
+    <div>
+      <% @tasks.where(assigned_to: nil).each do |task| %>
+        <%= link_to task_path(task), class: "task-card" do %>
+          <h4><%= task.name %> <strong>open</strong></h4>
+          <p><%= task.points %>p</p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
 <div class="container pl-2 overflow-fix">
   <% @tasks.each do |task| %>
     <div class="task-card">
@@ -16,4 +86,5 @@
       <% end %>
     </div>
   <% end %>
+
 </div>
