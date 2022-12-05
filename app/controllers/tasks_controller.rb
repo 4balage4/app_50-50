@@ -8,6 +8,14 @@ class TasksController < ApplicationController
     authorize @task
   end
 
+  def mark_as_done
+    @task = Task.find(params[:id])
+    authorize @task
+    @task.done = true
+    @task.save!
+    redirect_to tasks_path
+  end
+
   def new
     if params[:template_id]
       @template = Template.find(params[:template_id])

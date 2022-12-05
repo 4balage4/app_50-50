@@ -10,6 +10,10 @@ class TaskPolicy < ApplicationPolicy
     true
   end
 
+  def mark_as_done?
+    true
+  end
+
   def create?
     true
   end
