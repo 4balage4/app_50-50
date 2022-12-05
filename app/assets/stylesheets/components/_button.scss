@@ -12,7 +12,7 @@
   opacity: 1;
 }
 
-.btn-flat, .btn-add {
+.btn-flat, .btn-add, .btn-menu {
   color: black;
   padding: 8px 24px;
   border-radius: 4px;
@@ -20,7 +20,7 @@
   transition: background 0.3s ease;
 }
 
-.btn-flat:hover, .btn-add:hover {
+.btn-flat:hover, .btn-add:hover, .btn-menu:hover {
   background: #5870CB;
   color: black;
 }
@@ -47,4 +47,24 @@
 .form-button {
   color: #5870CB;
   font-size: 32px;
+}
+
+// buttons on Tasks
+.btn-menu {
+color: #5B5B5B;
+border-radius: 25px;
+margin: 2px;
+background: #A5FAEA;
+}
+
+
+.button-box {
+  border-style: solid;
+  border-color: #A5FAEA;
+  border-radius: 25px;
+  margin: 0;
+  // background-color: #DAFDFD;
+  p {
+    margin: 0;
+  }
 }
