@@ -91,26 +91,4 @@
           </div>
         <% end %>
   </div>
-
-
 </div>
-
-
-
-
-  <div class="container pl-2 overflow-fix">
-    <% @tasks.each do |task| %>
-      <div class="task-card">
-        <%= link_to(task_path(task)) do %>
-          <h4><%= task.name %></h4>
-        <% end %>
-        <p><%= task.points %></p>
-        <p> <%= task.user.username %></p>
-        <% unless task.done %>
-          <%= link_to("done!", mark_as_done_path(task), data:{turbo_method: :post}, class: "width-fix" ) %>
-        <% else %>
-          <p>Task done!</p>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
