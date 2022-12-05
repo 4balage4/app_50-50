@@ -13,11 +13,13 @@
 }
 
 .btn-flat, .btn-add {
-  color: black;
+  color:#5B5B5B;
   padding: 8px 24px;
   border-radius: 4px;
+  border-color: #909090;
   background: #75CCB9;
   transition: background 0.3s ease;
+  font-family: 'Poppins';
 }
 
 .btn-flat:hover, .btn-add:hover {

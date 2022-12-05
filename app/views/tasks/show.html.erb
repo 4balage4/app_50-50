@@ -2,7 +2,7 @@
   <h1>Task details</h1>
 </div>
 
-<div class="container overflow-fix">
+<div class="container">
   <div class= "main-card">
     <div class="task-name-card">
       <h4><%= @task.name %></h4>
@@ -11,42 +11,47 @@
 
     <div class="task-details">
       <ul>
-        <li>points: <span class="detail"><%=@task.points %></span></li>
-        <li>duration: <span class="detail"><%=@task.duration %></span></li>
-        <li>comments: <span class="detail"><%=@task.comments %></span></li>
-        <li>due_date: <span class="detail"><%=@task.due_date %></span></li>
-        <li>contact: <span class="detail"><%=@task.contact.nil? ? "" : @task.contact.title %>
-        <ul>
-          <li> name: <%= @task.contact.nil? ? "" : @task.contact.name  %> </li>
-          <li>address: <%= @task.contact.nil? ? "" : @task.contact.address %></li>
-          <li>phone number: <%= @task.contact.nil? ? "" : @task.contact.phone %></li>
-        </ul>
-        <li>category: <span class="detail"><%=@task.category.name %></span></li>
-        <li>assigned to: <span class="detail"><%= @task.assigned_to.nil? ? "unassigned" : @task.assigned_to.username %></span></li>
+        <li>Points: <span class="detail"><%=@task.points %></span></li>
+        <li>Duration: <span class="detail"><%=@task.duration %></span></li>
+        <li>Comments: <span class="detail"><%=@task.comments %></span></li>
+        <li>Due date: <span class="detail"><%=@task.due_date %></span></li>
+        <li>Contact: <%=@task.contact.nil? ? "" : @task.contact.title %>
+        <% if @task.contact.nil? %>
+          <ul>
+            <li><span class="detail"><i>No contact entered</i></span></li>
+          </ul>
+        <% else %>
+          <ul><span class="detail">
+            <li><span class="contact-detail"><i>Name:</i><br> </span><%= @task.contact.nil? ? "" : @task.contact.name  %> </li><br>
+            <li><span class="contact-detail"><i>Address:</i><br> </span><%= @task.contact.nil? ? "" : @task.contact.address %></li><br>
+            <li><span class="contact-detail"><i>Phone number:</i><br> </span><%= @task.contact.nil? ? "" : @task.contact.phone %></li><br>
+          </span>
+          </ul>
+        <% end %>
+        <li>Category: <span class="detail"><%=@task.category.name %></span></li>
+        <li>Assigned to: <span class="detail"><%= @task.assigned_to.nil? ? "unassigned" : @task.assigned_to.username %></span></li>
       </ul>
     </div>
   </div>
 
 
-  <div>
-    <li>
-    <%= link_to task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-    <i class="fa-solid fa-trash"></i>
-    <% end %>
-    </li>
-    <li>
-    <%= link_to tasks_path do %>
-    <i class="fa-regular fa-address-book"></i>
-    <% end  %>
-    </li>
-    <li>
-    <%= link_to edit_task_path do %>
-    <i class="fa-solid fa-pen"></i>
-    <% end %>
-    </li>
+  <div class="bottom-buttons">
+    <div class="bottom-button">
+      <%= button_to "Create template", new_task_template_path(@task), class: "btn-flat"%>
+      <%= button_to "Duplicate", duplicate_task_path(@task), class: "btn-flat"%>
+    </div>
+    <div class="bottom-icons">
+      <%= link_to task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-solid fa-trash"></i>
+      <% end %>
+      <%= link_to tasks_path do %>
+      <i class="fa-regular fa-address-book"></i>
+      <% end  %>
+      <%= link_to edit_task_path do %>
+      <i class="fa-solid fa-pen"></i>
+      <% end %>
+    </div>
 
-
-    <%= link_to "create template", new_task_template_path(@task) %>
-    <%= link_to "duplicate", duplicate_task_path(@task) %>
   </div>
+  <div style="height: 120px"></div>
 </div>
