@@ -1,9 +1,10 @@
 <div class="welcome-message">
   <h1>New Task</h1>
 </div>
-<div class="container overflow-fix">
+<div class="container">
   <div class="d-flex justify-content-center">
     <%= link_to "Add from template", templates_path, class: "btn btn-add mt-3" %>
   </div>
   <%= render "form", task: @task %>
+  <div style="height: 120px"></div>
 </div>
