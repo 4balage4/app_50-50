@@ -5,9 +5,9 @@ import { end } from "@popperjs/core";
 export default class extends Controller {
   static targets = ["allTasks", "currentUser", "userPartner", "unassigned"]
 
-  connect() {
-    console.log("connected", this.element);
-  }
+  // connect() {
+  //   console.log("connected", this.element);
+  // }
 
 
   show(event) {
@@ -35,13 +35,5 @@ export default class extends Controller {
       this.allTasksTarget.classList.add("d-none");
       this.userPartnerTarget.classList.add("d-none");
     }
-
-    // console.dir(event.currentTarget);
-    // console.log(event.currentTarget.innerText);
-
-
-
   }
 }
-
-// element.classList.remove("d-none");
