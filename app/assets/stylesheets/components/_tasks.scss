@@ -5,19 +5,28 @@
   margin: 12px auto 12px;
   text-decoration: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
-  h4 {
-    font-family: 'Poppins';
-    font-size: 16px;
-    color: #000000;
-    margin: 4px;
+  a {
+    width: 100%;
+
+    h4 {
+      font-family: 'Poppins';
+      font-size: 16px;
+      color: #000000;
+      margin: 4px;
+    }
   }
 
-  p{
+  p {
     font-weight: lighter;
     color: grey;
     margin: 2px;
+  }
+
+  .width-fix {
+    width: max-content !important;
   }
 }
 
