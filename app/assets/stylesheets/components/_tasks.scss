@@ -5,6 +5,7 @@
   margin: 12px auto 12px;
   text-decoration: none;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   h4 {
@@ -14,11 +15,15 @@
     margin: 4px;
   }
 
-  p{
+  p {
     font-weight: lighter;
     color: #5B5B5B;
     margin: 2px;
     font-family:'Poppins';
+  }
+
+  .width-fix {
+    width: max-content !important;
   }
 }
 
