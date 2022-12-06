@@ -23,18 +23,32 @@
   <div data-filter-tasks-target="allTasks" class="container pl-2 overflow-fix">
     <p>all tasks</p>
       <% @tasks.each do |task| %>
-        <div class="task-card">
-          <%= link_to(task_path(task)) do %>
+        <%= link_to(task_path(task)) do %>
+          <div class="task-card">
+            <div class="task-infos">
+              <p><%= task.category.name %></p>
+              <div class="task-circles">
+                <div class="task-points">
+                  <p><%= task.points %></p>
+                </div>
+                <div class="assigned_to">
+                  <p><%= task.assigned_to.nil? ? "?" : task.assigned_to.username[0] %></p>
+                </div>
+              </div>
+
+            </div>
             <h4><%= task.name %></h4>
-          <% end %>
-            <p><%= task.points %></p>
-            <p><%= task.assigned_to.nil? ? "unassigned" : task.assigned_to.username %></p>
-          <% unless task.done %>
-            <%= link_to("done!", mark_as_done_path(task), data:{turbo_method: :post}, class: "width-fix" ) %>
-          <% else %>
-            <p>Task done!</p>
-          <% end %>
-        </div>
+            <div class="task-infos">
+              <p><%= task.category.name %></p>
+              <p><%= task.due_date %></p>
+              <% unless task.done %>
+                <%= link_to("done!", mark_as_done_path(task), data:{turbo_method: :post}, class: "width-fix" ) %>
+              <% else %>
+                <p>Task done!</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
   </div>
 
