@@ -1,0 +1,53 @@
+.contact-details {
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px auto 12px;
+  text-decoration: none;
+  width: 100%;
+
+  p{
+    font-weight: lighter;
+    color: #5B5B5B;
+    margin: 2px;
+    padding-block: 10;
+  }
+}
+
+.contact-name-card {
+  background: #A5FAEA;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 16px;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-between;
+  p{
+    margin-bottom: 0 !important;
+    color: #5B5B5B !important;
+    font-family:'Poppins';
+  }
+  h4{
+    margin-bottom: 0 !important;
+    color: #5B5B5B !important;
+    font-family:'Poppins';
+  }
+}
+
+.bottom-icons{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 8px;
+  margin: 8px;
+  font-size: 24px;
+  a{
+    text-decoration: none !important;
+    color: #75CCB9;
+    font-size: 24px;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  i{
+    color: #75CCB9;
+  }
+}
+
