@@ -1,3 +1,13 @@
 <h1>Score page</h1>
 
 
+<p>Your current score is <%= @user_tasks.pluck(:points).sum %></p>
+<p>Your partner's score is <%= @partner_tasks.pluck(:points).sum%></p>
+<p>There are <%=@unassigned_tasks.pluck(:points).sum%> to play for 😎 </p>
+<% chart = {
+  user_points: @user_tasks.pluck(:points).sum,
+  partner_points: @partner_tasks.pluck(:points).sum,
+  open_points: @unassigned_tasks.pluck(:points).sum
+} %>
+
+<%= pie_chart chart%>
