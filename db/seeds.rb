@@ -22,13 +22,18 @@ berlin_household = Household.create(name: "Berlin")
 brussels_household = Household.create(name: "Brussels")
 budapest_household = Household.create(name: "Budapest")
 
+# USERS' COLORS
+# colors = [user_one, user_two]
+user_one = "FFE609"
+user_two = "F09206"
+
 # 6 USERS
-linus = User.create(email: "linus@bootcamp.com", username: "Linus", password: "123456", household: berlin_household)
-linus_partner = User.create(email: "linus@partner.com", username: "LinusPartner", password: "123456", household: berlin_household)
-pauline = User.create(email: "pauline@bootcamp.com", username: "Pauline", password: "123456", household: brussels_household)
-pauline_partner = User.create(email: "pauline@partner.com", username: "PaulinePartner", password: "123456", household: brussels_household)
-balazs = User.create(email: "balazs@bootcamp.com", username: "Balazs", password: "123456", household: budapest_household)
-balazs_partner = User.create(email: "balazs@partner.com", username: "BalazsPartner", password: "123456", household: budapest_household)
+linus = User.create(email: "linus@bootcamp.com", username: "Zaza", password: "123456", household: berlin_household, color: user_one)
+linus_partner = User.create(email: "linus@partner.com", username: "Mimi", password: "123456", household: berlin_household, color: user_two)
+pauline = User.create(email: "pauline@bootcamp.com", username: "Zaza", password: "123456", household: brussels_household, color: user_one)
+pauline_partner = User.create(email: "pauline@partner.com", username: "Mimi", password: "123456", household: brussels_household, color: user_two)
+balazs = User.create(email: "balazs@bootcamp.com", username: "Zaza", password: "123456", household: budapest_household, color: user_one)
+balazs_partner = User.create(email: "balazs@partner.com", username: "Mimi", password: "123456", household: budapest_household, color: user_two)
 users = [linus, linus_partner, pauline, pauline_partner, balazs, balazs_partner]
 
 # 30 CONTACTS
@@ -37,7 +42,7 @@ midwife = Contact.create(title: "Midwife", name: "Pippa Schultz", phone: "0049 1
 plumber = Contact.create(title: "Plumber", name: "Björn Graff", phone: "0049 134 274 239", address: "Am Fliederbusch 45, 12867 Berlin", household: brussels_household)
 sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12987 Berlin", household: brussels_household)
 football_club = Contact.create(title: "Football club", name: "Football club Pankow", phone: "0049 145 334 079", address: "Cicerostraße 2, 10457 Berlin", household: brussels_household)
-primary school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: brussels_household)
+primary_school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: brussels_household)
 babysitter = Contact.create(title: "Babysitter", name: "Alessia Williamson", phone: "0049 175 034 780", address: "Clausewitzstraße 83,10367 Berlin", household: brussels_household)
 babysitter_backup = Contact.create(title: "Babysitter backup", name: "Mirko Knipp", phone: "0049 175 233 755", address: "0049 175 233 755", household: brussels_household)
 doctor = Contact.create(title: "Doctor", name: "Sabine Müller", phone: "0049 123 720 787", address: "Dresselstraße, 63 10457 Berlin", household: brussels_household)
@@ -51,7 +56,7 @@ midwife = Contact.create(title: "Midwife", name: "Pippa Schultz", phone: "0049 1
 plumber = Contact.create(title: "Plumber", name: "Björn Graff", phone: "0049 134 274 239", address: "Am Fliederbusch 45, 12867 Berlin", household: berlin_household)
 sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12987 Berlin", household: berlin_household)
 football_club = Contact.create(title: "Football club", name: "Football club Pankow", phone: "0049 145 334 079", address: "Cicerostraße 2, 10457 Berlin", household: berlin_household)
-primary school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: berlin_household)
+primary_school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: berlin_household)
 babysitter = Contact.create(title: "Babysitter", name: "Alessia Williamson", phone: "0049 175 034 780", address: "Clausewitzstraße 83,10367 Berlin", household: berlin_household)
 babysitter_backup = Contact.create(title: "Babysitter backup", name: "Mirko Knipp", phone: "0049 175 233 755", address: "0049 175 233 755", household: berlin_household)
 doctor = Contact.create(title: "Doctor", name: "Sabine Müller", phone: "0049 123 720 787", address: "Dresselstraße, 63 10457 Berlin", household: berlin_household)
@@ -65,7 +70,7 @@ midwife = Contact.create(title: "Midwife", name: "Pippa Schultz", phone: "0049 1
 plumber = Contact.create(title: "Plumber", name: "Björn Graff", phone: "0049 134 274 239", address: "Am Fliederbusch 45, 12867 Berlin", household: budapest_household)
 sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12987 Berlin", household: budapest_household)
 football_club = Contact.create(title: "Football club", name: "Football club Pankow", phone: "0049 145 334 079", address: "Cicerostraße 2, 10457 Berlin", household: budapest_household)
-primary school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: budapest_household)
+primary_school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: budapest_household)
 babysitter = Contact.create(title: "Babysitter", name: "Alessia Williamson", phone: "0049 175 034 780", address: "Clausewitzstraße 83,10367 Berlin", household: budapest_household)
 babysitter_backup = Contact.create(title: "Babysitter backup", name: "Mirko Knipp", phone: "0049 175 233 755", address: "0049 175 233 755", household: budapest_household)
 doctor = Contact.create(title: "Doctor", name: "Sabine Müller", phone: "0049 123 720 787", address: "Dresselstraße, 63 10457 Berlin", household: budapest_household)
