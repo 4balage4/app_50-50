@@ -22,29 +22,52 @@
   </div>
 
   <div data-filter-tasks-target="allTasks" class="container pl-2 overflow-fix">
-    <% @tasks.each do |task| %>
+    <% @tasks.where(done: false).each do |task| %>
+      <%= render "task", task: task %>
+    <% end %>
+  </div>
+  <div data-filter-tasks-target="allTasksA" class="container pl-2 overflow-fix">
+    <h3>done</h3>
+    <% @tasks.where(done: true).each do |task| %>
       <%= render "task", task: task %>
     <% end %>
   </div>
 
   <div data-filter-tasks-target="currentUser" class="container pl-2 overflow-fix d-none">
-      <p>my tasks</p>
-      <% @tasks.where(assigned_to: current_user).each do |task| %>
+      <% @tasks.where(assigned_to: current_user).and(@tasks.where(done: false)).each do |task| %>
+        <%= render "task", task: task %>
+      <% end %>
+  </div>
+  <div data-filter-tasks-target="currentUserA" class="container pl-2 overflow-fix d-none">
+      <p>done</p>
+      <% @tasks.where(assigned_to: current_user).and(@tasks.where(done: true)).each do |task| %>
         <%= render "task", task: task %>
       <% end %>
   </div>
 
+
   <div data-filter-tasks-target="userPartner" class="container pl-2 overflow-fix d-none">
-      <p>partner task</p>
-      <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).each do |task| %>
+      <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: false)).each do |task| %>
+        <%= render "task", task: task %>
+      <% end %>
+  </div>
+  <div data-filter-tasks-target="userPartnerA" class="container pl-2 overflow-fix d-none">
+      <p>Done</p>
+      <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: true)).each do |task| %>
         <%= render "task", task: task %>
       <% end %>
   </div>
 
   <div data-filter-tasks-target="unassigned" class="container pl-2 overflow-fix d-none">
-      <p>open tasks</p>
-        <% @tasks.where(assigned_to: nil).each do |task| %>
+        <% @tasks.where(assigned_to: nil).and(@tasks.where(done: false)).each do |task| %>
         <%= render "task", task: task %>
         <% end %>
   </div>
+  <div data-filter-tasks-target="unassignedtask" class="container pl-2 overflow-fix d-none">
+      <p>Done</p>
+        <% @tasks.where(assigned_to: nil).and(@tasks.where(done: true)).each do |task| %>
+        <%= render "task", task: task %>
+        <% end %>
+  </div>
+
 </div>

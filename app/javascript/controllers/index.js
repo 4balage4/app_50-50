@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import CrossTextController from "./cross_text_controller"
+application.register("cross-text", CrossTextController)
+
 import FilterTasksController from "./filter_tasks_controller"
 application.register("filter-tasks", FilterTasksController)
 
