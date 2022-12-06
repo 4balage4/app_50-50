@@ -13,7 +13,7 @@
 }
 
 
-.btn-flat, .btn-add, .btn-menu {
+.btn-flat, .btn-add {
   color: black;
   padding: 8px 24px;
   border-radius: 4px;
@@ -21,6 +21,8 @@
   background: #75CCB9;
   transition: background 0.3s ease;
   font-family: 'Poppins';
+
+
 }
 
 .btn-flat:hover, .btn-add:hover, .btn-menu:hover {
@@ -57,8 +59,18 @@
 color: #5B5B5B;
 border-radius: 25px;
 margin: 2px;
-background: #A5FAEA;
+background: #75CCB9;
+border-color: #A5FAEA;
+padding: 8px, 24px;
+transition: background 0.3s ease;
+font-family: 'Poppins';
+
 }
+
+.btn-active {
+  background: #A5FAEA;
+}
+
 
 
 .button-box {
@@ -66,6 +78,7 @@ background: #A5FAEA;
   border-color: #A5FAEA;
   border-radius: 25px;
   margin: 0;
+
   // background-color: #DAFDFD;
   p {
     margin: 0;
