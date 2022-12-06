@@ -4,8 +4,8 @@ class User < ApplicationRecord
   belongs_to :household
   has_many :tasks
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  # 'before_create :assign_color
+          :recoverable, :rememberable, :validatable
+  # before_create :assign_color
 
   # def assign_color
   #   colors = # array of colors

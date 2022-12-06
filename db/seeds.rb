@@ -24,8 +24,8 @@ budapest_household = Household.create(name: "Budapest")
 
 # USERS' COLORS
 # colors = [user_one, user_two]
-user_one = "FFE609"
-user_two = "F09206"
+user_one = "#FFE609"
+user_two = "#F09206"
 
 # 6 USERS
 linus = User.create(email: "linus@bootcamp.com", username: "Zaza", password: "123456", household: berlin_household, color: user_one)
