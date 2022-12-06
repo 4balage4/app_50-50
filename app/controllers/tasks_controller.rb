@@ -11,7 +11,11 @@ class TasksController < ApplicationController
   def mark_as_done
     @task = Task.find(params[:id])
     authorize @task
-    @task.done = true
+    if @task.done = true
+      @task.done = false
+    else
+      @task.done = true
+    end
     @task.save!
     redirect_to tasks_path
   end
