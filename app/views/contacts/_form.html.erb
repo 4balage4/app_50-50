@@ -2,9 +2,9 @@
   <div class="row justify-content-center">
     <div class="col-12 col-sm-4">
       <%= simple_form_for @contact do |f| %>
-        <%= f.input :title, error: "You can't leave it blank"%>
-        <%= f.input :name, error: "You can't leave it blank" %>
-        <%= f.input :phone %>
+        <%= f.input :title, placeholder: "Title", error: "You can't leave it blank"%>
+        <%= f.input :name, placeholder: "Name", error: "You can't leave it blank" %>
+        <%= f.input :phone, placeholder: "e.g. +49 211 1234567"%>
         <%= f.input :address %>
         <div class="d-flex justify-content-center">
           <%= f.button :submit, class: "btn btn-add" %>
