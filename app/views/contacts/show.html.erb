@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class= "main-card">
-    <div class="contact-name-card">
+    <div class="contact-name-card justify-content-center">
       <h4><%= @contact.name %></h4>
     </div>
     <div class="contact-details">
@@ -13,7 +13,9 @@
         <%= f.input :name %>
         <%= f.input :phone %>
         <%= f.input :address %>
-        <%= f.button :submit %>
+        <div class="d-flex justify-content-center">
+        <%= f.button :submit, class: "btn btn-add" %>
+        </div>
       <% end %>
     </div>
   </div>

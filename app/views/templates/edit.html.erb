@@ -1,9 +1,18 @@
-<h1>Edit <%=@template.name %> template</h1>
-
-<%= simple_form_for @template do |f| %>
-  <%= f.input :name %>
-  <%= f.input :points %>
-  <%# <%= f.input :duration %>
-  <%= f.association :category, collection: Category.all %>
-  <%= f.button :submit %>
-<% end %>
+<div class="welcome-message">
+  <h1>Edit template</h1>
+</div>
+  <div class="main-card">
+    <div class="template-name-card justify-content-center">
+      <h4><%= @template.name %></h4>
+    </div>
+<div class= "container overflow-fix">
+  <%= simple_form_for @template do |f| %>
+    <%= f.input :name %>
+    <%= f.input :points %>
+    <%# <%= f.input :duration %>
+    <%= f.association :category, collection: Category.all %>
+      <div class="d-flex justify-content-center">
+        <%= f.button :submit, class: "btn btn-add" %>
+      </div>
+  <% end %>
+</div>
