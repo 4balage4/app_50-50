@@ -17,9 +17,13 @@
 
   <body>
     <div class="wrapper">
-      <%= yield %>
-      <%= render "shared/flashes" %>
+      <div>
+        <%= yield %>
+        <%= render "shared/flashes" %>
+      </div>
+      <div>
+        <%= render "shared/navbar" %>
+      </div>
     </div>
-    <%= render "shared/navbar" %>
   </body>
 </html>

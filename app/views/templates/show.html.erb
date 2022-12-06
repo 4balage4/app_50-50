@@ -4,7 +4,7 @@
 
 <div class="container">
   <div class= "main-card">
-    <div class="template-name-card">
+    <div class="template-name-card justify-content-center">
       <h4><%= @template.name %></h4>
     </div>
     <div class="template-details">
@@ -18,7 +18,7 @@
   </div>
   <div class="bottom-buttons">
     <div class="bottom-button">
-      <%= button_to "Create task from template", new_template_task_path(@template), class: "btn-flat"%>
+      <%= link_to "Create task from template", new_template_task_path(@template), class: "btn btn-add"%>
     </div>
     <div class="bottom-icons">
       <%= link_to template_path(@template), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>

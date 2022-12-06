@@ -1,70 +1,34 @@
+<div class="container template-details-header">
+  <h1>Contact details</h1>
+</div>
+
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-4">
+  <div class= "main-card">
+    <div class="contact-name-card justify-content-center">
+      <h4><%= @contact.name %></h4>
+    </div>
+    <div class="contact-details">
       <%= simple_form_for @contact do |f| %>
         <%= f.input :title %>
         <%= f.input :name %>
         <%= f.input :phone %>
         <%= f.input :address %>
-        <%= f.button :submit %>
+        <div class="d-flex justify-content-center">
+        <%= f.button :submit, class: "btn btn-add" %>
+        </div>
       <% end %>
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-
-<h1> Contact details </h1>
-
-<p><%= @contact.title  %></p>
-<p><%= @contact.name  %></p>
-
-<p><%= @contact.phone  %></p>
-<p><%= @contact.address  %></p>
-
-<a class="btn btn-primary" href="https://www.google.at/maps/place/<%=@contact.address %>
-" target="blank"> </a>
-
-<li>
-<li>
-<%= link_to contacts_path do %>
-<i class="fa-regular fa-address-book"></i>
-<% end  %>
-</li>
-<li>
-
-
-
-
-<div class="container text-center">
-  <div class="card" style="width: 18rem;">
-    <%# <img src="..." class="card-img-top" alt="..."> %>
-    <div class="card-body">
-      <h5 class="card-title"><%= @contact.title  %></h5>
-      <%# <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> %>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item"><%= @contact.name  %></li>
-      <li class="list-group-item"><%= @contact.phone  %></li>
-      <li class="list-group-item"><%= @contact.address  %></li>
-    </ul>
-    <div class="card-body space-around">
-      <a href="#" class="card-link"></a>
-      <a href="#" class="card-link"></a>
-        <%= link_to edit_contact_path do %>
-        <i class="fa-solid fa-pen"></i>
-        <% end %>
-        <%= link_to contact_path(@contact), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-        <i class="fa-solid fa-trash"></i>
-        <% end %>
-
-    </div>
+<div class="bottom-buttons">
+  <div class="bottom-icons">
+    <%= link_to contact_path(@contact), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+    <i class="fa-solid fa-trash"></i>
+    <% end %>
+    <a class="fa-solid fa-location-dot" href="https://www.google.at/maps/place/<%=@contact.address %>" target="blank"> </a>
+    <%= link_to edit_contact_path do %>
+    <i class="fa-solid fa-pen"></i>
+    <% end %>
   </div>
 </div>

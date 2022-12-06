@@ -3,7 +3,7 @@ import { end } from "@popperjs/core";
 
 // Connects to data-controller="filter-tasks"
 export default class extends Controller {
-  static targets = ["allTasks", "currentUser", "userPartner", "unassigned"]
+  static targets = ["allTasks", "currentUser", "userPartner", "unassigned", "navButton"]
 
   // connect() {
   //   console.log("connected", this.element);
@@ -11,6 +11,11 @@ export default class extends Controller {
 
 
   show(event) {
+    this.navButtonTargets.forEach((button) => {
+      button.classList.remove("btn-active")
+    })
+    event.currentTarget.parentElement.classList.add("btn-active")
+    
     if (event.currentTarget.className == "all") {
       this.allTasksTarget.classList.remove("d-none");  // all tasks
       this.currentUserTarget.classList.add("d-none");

@@ -11,7 +11,11 @@ class TasksController < ApplicationController
   def mark_as_done
     @task = Task.find(params[:id])
     authorize @task
-    @task.done = true
+    if @task.done = true
+      @task.done = false
+    else
+      @task.done = true
+    end
     @task.save!
     redirect_to tasks_path
   end
@@ -19,7 +23,7 @@ class TasksController < ApplicationController
   def score
     @tasks = current_user.tasks.where(done: true)
     authorize @tasks
-    #@tasks.pluck(:points)
+    @tasks.pluck(:points)
   end
 
   def new
@@ -53,11 +57,10 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     authorize @task
     @task.update(task_params)
-    if @task.save!
-      redirect_to tasks_path
-    else
-      render :edit, status: :unprocessable_entity
-    end
+      respond_to do |format|
+        format.html { redirect_to tasks_path }
+        format.text { render partial: "tasks/task", locals: {task: @task}, formats: [:html] }
+      end
   end
 
   def duplicate
@@ -75,6 +78,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:name, :points, :duration, :type, :comments, :contact_id, :due_date, :status, :assigned_to_id, :category_id)
+    params.require(:task).permit(:name, :points, :duration, :type, :comments, :contact_id, :due_date, :status, :done, :assigned_to_id, :category_id)
   end
 end
