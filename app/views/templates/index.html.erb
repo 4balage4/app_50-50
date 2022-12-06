@@ -5,9 +5,11 @@
 <div class="container pl-2 overflow-fix">
   <div>
     <% @templates.each do |template| %>
-      <%= link_to template_path(template), class: "task-card" do %>
-        <h4><%= template.name %></h4>
-        <p><%= template.points ? "#{template.points}p" : ""%></p>
+      <%= link_to template_path(template) do %>
+        <div class="task-card">
+          <h4><%= template.name %></h4>
+          <p><%= template.points ? "#{template.points}p" : ""%></p>
+        </div>
       <% end %>
     <% end %>
   </div>
