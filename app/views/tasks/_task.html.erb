@@ -1,0 +1,16 @@
+<div class="task-card" data-controller="mark" data-mark-target="task">
+          <%= link_to task_path(task) do %>
+            <h4><%= task.name %></h4>
+            <p><%= task.points %></p>
+          <% end %>
+            <p><%= task.assigned_to.nil? ? "unassigned" : task.assigned_to.username %></p>
+              <%= simple_form_for task, html: {
+                  class: "",
+                  data: {
+                    mark_target: "form",
+                  }
+                } do |f|
+              %>
+                <%= f.input :done, label: false, input_html: { data: { action: "change->mark#check" } } %>
+              <% end %>
+        </div>

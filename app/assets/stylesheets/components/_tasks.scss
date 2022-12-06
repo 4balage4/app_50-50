@@ -7,6 +7,7 @@
   flex-wrap: wrap;
 
   h4 {
+
     font-family: 'Poppins';
     font-size: 20px;
     color: whitesmoke;
@@ -16,6 +17,7 @@
   }
 
   p {
+
     font-weight: lighter;
     color: whitesmoke;
     margin: 0px;
@@ -32,6 +34,15 @@
     width: max-content !important;
   }
 }
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+
 
 .task-infos{
   display: flex;
@@ -72,6 +83,7 @@
     font-size: 20px;
     font-weight: bolder;
   }
+
 }
 
 .task-details {
