@@ -9,7 +9,7 @@
   justify-content: space-between;
 
   h4 {
-    
+
     font-family: 'Poppins';
     font-size: 16px;
     color:#5B5B5B;
@@ -27,6 +27,15 @@
   .width-fix {
     width: max-content !important;
   }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
 }
 
 .task-details {
