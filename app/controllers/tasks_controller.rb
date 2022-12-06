@@ -19,7 +19,7 @@ class TasksController < ApplicationController
   def score
     @tasks = current_user.tasks.where(done: true)
     authorize @tasks
-    #@tasks.pluck(:points)
+    @tasks.pluck(:points)
   end
 
   def new
