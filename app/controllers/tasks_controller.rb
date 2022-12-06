@@ -41,7 +41,7 @@ class TasksController < ApplicationController
     @task.user = current_user
     @task.household = current_user.household
     authorize @task
-    if @task.save!
+    if @task.save
       redirect_to tasks_path
     else
       render :new, status: :unprocessable_entity

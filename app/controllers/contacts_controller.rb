@@ -24,7 +24,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     @contact.household_id = current_user.household_id
     authorize @contact
-    if @contact.save!
+    if @contact.save
       redirect_to contacts_path
     else
       render :new, status: :unprocessable_entity
