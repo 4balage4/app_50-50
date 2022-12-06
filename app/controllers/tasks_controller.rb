@@ -21,9 +21,18 @@ class TasksController < ApplicationController
   end
 
   def score
-    @tasks = current_user.tasks.where(done: true)
-    authorize @tasks
-    @tasks.pluck(:points)
+    @user_tasks = current_user.tasks.where(done: true)
+    user_ids = current_user.household.users.pluck(:id)
+    user_ids.delete(current_user.id)
+    partner_id = user_ids.first
+    @partner_tasks = User.find(partner_id).tasks.where(done: true)
+    @unassigned_tasks = Task.where(household_id: current_user.household_id).and(Task.where(assigned_to_id: nil))
+
+    authorize @user_tasks
+    authorize @partner_tasks
+    authorize @unassigned_tasks
+
+
   end
 
   def new

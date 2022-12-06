@@ -88,3 +88,5 @@ gem "cloudinary"
 # search
 gem "pg_search"
 
+#Chartkick
+gem "chartkick"
