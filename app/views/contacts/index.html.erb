@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="search overflow-fix">
+  <div class="search overflow-fix sticky-top mt-3 pt-2">
       <%= form_with url: contacts_path, method: :get, class: "d-flex" do %>
         <%= text_field_tag :query,
           params[:query],

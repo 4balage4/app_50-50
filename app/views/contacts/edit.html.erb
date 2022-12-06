@@ -1,4 +1,11 @@
-<div class="card">
-  <h2 class="header">Edit Contact</h2>
+<div class="container template-details-header">
+  <h1>Edit Contact</h1>
+</div>
+<div class= "main-card">
+    <div class="contact-name-card justify-content-center">
+      <h4><%= @contact.name %></h4>
+    </div>
 
-<%= render "form", contact: @contact  %>
+<div class="container overflow-fix mt-5">
+  <%= render "form", contact: @contact  %>
+</div>

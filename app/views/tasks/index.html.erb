@@ -2,19 +2,20 @@
   <h1>Hello <%= current_user.username %>!</h1>
 </div>
 
-<div data-controller="filter-tasks">
-  <div class="container d-flex justify-content-center flex-grow mt-3">
-    <div class="button-box">
-      <div class="btn btn-menu">
+
+<div class="main-div" data-controller="filter-tasks">
+  <div class="container d-flex justify-content-center flex-grow sticky-top pt-3">
+    <div class="button-box d-flex flex-grow">
+      <div class="btn btn-menu btn-active" data-filter-tasks-target="navButton">
         <p data-action="click->filter-tasks#show" class="all"> all</p>
       </div>
-      <div class="btn btn-menu">
+      <div class="btn btn-menu" data-filter-tasks-target="navButton">
         <p data-action="click->filter-tasks#show" class="user"> <%= current_user.username %></p>
       </div>
-      <div class="btn btn-menu">
+      <div class="btn btn-menu" data-filter-tasks-target="navButton">
         <p data-action="click->filter-tasks#show" class="partner"><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username %></p>
       </div>
-      <div class="btn btn-menu">
+      <div class="btn btn-menu" data-filter-tasks-target="navButton">
         <p data-action="click->filter-tasks#show" class="open"> open</p>
       </div>
     </div>
@@ -24,6 +25,42 @@
     <p>all tasks</p>
       <% @tasks.each do |task| %>
         <%= render "task", task: task %>
+        <%= link_to(task_path(task)) do %>
+          <div class="task-card">
+            <div class="task-infos">
+              <% category_hash = {
+                "Groceries" => "fa-solid fa-cart-shopping",
+                "Care" => "fa-solid fa-heart",
+                "Cleaning" => "fa-solid fa-hand-sparkles",
+                "Paperwork" => "fa-solid fa-folder-open",
+                "Planning" => "fa-solid fa-calendar-days",
+                "Maintenance" => "fa-solid fa-person-shelter"
+              }
+               %>
+              <%# <i class="<%= category_hash[task.category.name]"></i> %>
+              <p><span>👶 </span><%= task.category.name %></p>
+              <div class="task-circles">
+                <div class="task-points">
+                  <p><%= task.points %></p>
+                </div>
+                <div class="assigned_to">
+                  <p><%= task.assigned_to.nil? ? "?" : task.assigned_to.username[0] %></p>
+                </div>
+              </div>
+
+            </div>
+            <h4><%= task.name %></h4>
+            <div class="task-infos">
+               <%# <%= console %>
+              <p><%= task.due_date %></p>
+              <% unless task.done %>
+                <%= link_to("done!", mark_as_done_path(task), data:{turbo_method: :post}, class: "width-fix" ) %>
+              <% else %>
+                <p>Task done!</p>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
   </div>
 
