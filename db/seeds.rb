@@ -32,10 +32,47 @@ balazs_partner = User.create(email: "balazs@partner.com", username: "BalazsPartn
 users = [linus, linus_partner, pauline, pauline_partner, balazs, balazs_partner]
 
 # 30 CONTACTS
-puts "creating contacts"
-30.times do
-  Contact.create(title: Faker::Job.title, name: Faker::Name.name, phone: Faker::PhoneNumber.phone_number, address: Faker::Address.full_address, household: [berlin_household, budapest_household, brussels_household].sample)
-end
+pediatrician = Contact.create(title: "Pediatrician", name: "Kristin Klein", phone: "0049 175 567 245", address: "Nürnberger Straße 23, 13467 Berlin", household: brussels_household)
+midwife = Contact.create(title: "Midwife", name: "Pippa Schultz", phone: "0049 138 674 789", address: "Nussbaumallee 167, 10367 Berlin", household: brussels_household)
+plumber = Contact.create(title: "Plumber", name: "Björn Graff", phone: "0049 134 274 239", address: "Am Fliederbusch 45, 12867 Berlin", household: brussels_household)
+sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12987 Berlin", household: brussels_household)
+football_club = Contact.create(title: "Football club", name: "Football club Pankow", phone: "0049 145 334 079", address: "Cicerostraße 2, 10457 Berlin", household: brussels_household)
+primary school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: brussels_household)
+babysitter = Contact.create(title: "Babysitter", name: "Alessia Williamson", phone: "0049 175 034 780", address: "Clausewitzstraße 83,10367 Berlin", household: brussels_household)
+babysitter_backup = Contact.create(title: "Babysitter backup", name: "Mirko Knipp", phone: "0049 175 233 755", address: "0049 175 233 755", household: brussels_household)
+doctor = Contact.create(title: "Doctor", name: "Sabine Müller", phone: "0049 123 720 787", address: "Dresselstraße, 63 10457 Berlin", household: brussels_household)
+matthias_classmate = Contact.create(title: "Matthias (classmate)", name: "Matthias Schmidt", phone: "0049 107 348 700", address: "Flatowallee 78,12987 Berlin", household: brussels_household)
+teacher = Contact.create(title: "Teacher", name: "Johanna Logan", phone: "0049 123 274 984", address: "Am Heidebusch 86, 13492 Berlin", household: brussels_household)
+electrician = Contact.create(title: "Electrician", name: "Myrtle Haines", phone: "0049 234 719 782", address: "Glockenturmstraße 9, 13187 Berlin", household: brussels_household)
+lawyer = Contact.create(title: "Lawyer", name: "Hussein Farmer", phone: "0049 175 234 523", address: "Gloedenpfad 5, 13187 Berlin", household: brussels_household)
+
+pediatrician = Contact.create(title: "Pediatrician", name: "Kristin Klein", phone: "0049 175 567 245", address: "Nürnberger Straße 23, 13467 Berlin", household: berlin_household)
+midwife = Contact.create(title: "Midwife", name: "Pippa Schultz", phone: "0049 138 674 789", address: "Nussbaumallee 167, 10367 Berlin", household: berlin_household)
+plumber = Contact.create(title: "Plumber", name: "Björn Graff", phone: "0049 134 274 239", address: "Am Fliederbusch 45, 12867 Berlin", household: berlin_household)
+sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12987 Berlin", household: berlin_household)
+football_club = Contact.create(title: "Football club", name: "Football club Pankow", phone: "0049 145 334 079", address: "Cicerostraße 2, 10457 Berlin", household: berlin_household)
+primary school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: berlin_household)
+babysitter = Contact.create(title: "Babysitter", name: "Alessia Williamson", phone: "0049 175 034 780", address: "Clausewitzstraße 83,10367 Berlin", household: berlin_household)
+babysitter_backup = Contact.create(title: "Babysitter backup", name: "Mirko Knipp", phone: "0049 175 233 755", address: "0049 175 233 755", household: berlin_household)
+doctor = Contact.create(title: "Doctor", name: "Sabine Müller", phone: "0049 123 720 787", address: "Dresselstraße, 63 10457 Berlin", household: berlin_household)
+matthias_classmate = Contact.create(title: "Matthias (classmate)", name: "Matthias Schmidt", phone: "0049 107 348 700", address: "Flatowallee 78,12987 Berlin", household: berlin_household)
+teacher = Contact.create(title: "Teacher", name: "Johanna Logan", phone: "0049 123 274 984", address: "Am Heidebusch 86, 13492 Berlin", household: berlin_household)
+electrician = Contact.create(title: "Electrician", name: "Myrtle Haines", phone: "0049 234 719 782", address: "Glockenturmstraße 9, 13187 Berlin", household: berlin_household)
+lawyer = Contact.create(title: "Lawyer", name: "Hussein Farmer", phone: "0049 175 234 523", address: "Gloedenpfad 5, 13187 Berlin", household: berlin_household)
+
+pediatrician = Contact.create(title: "Pediatrician", name: "Kristin Klein", phone: "0049 175 567 245", address: "Nürnberger Straße 23, 13467 Berlin", household: budapest_household)
+midwife = Contact.create(title: "Midwife", name: "Pippa Schultz", phone: "0049 138 674 789", address: "Nussbaumallee 167, 10367 Berlin", household: budapest_household)
+plumber = Contact.create(title: "Plumber", name: "Björn Graff", phone: "0049 134 274 239", address: "Am Fliederbusch 45, 12867 Berlin", household: budapest_household)
+sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12987 Berlin", household: budapest_household)
+football_club = Contact.create(title: "Football club", name: "Football club Pankow", phone: "0049 145 334 079", address: "Cicerostraße 2, 10457 Berlin", household: budapest_household)
+primary school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: budapest_household)
+babysitter = Contact.create(title: "Babysitter", name: "Alessia Williamson", phone: "0049 175 034 780", address: "Clausewitzstraße 83,10367 Berlin", household: budapest_household)
+babysitter_backup = Contact.create(title: "Babysitter backup", name: "Mirko Knipp", phone: "0049 175 233 755", address: "0049 175 233 755", household: budapest_household)
+doctor = Contact.create(title: "Doctor", name: "Sabine Müller", phone: "0049 123 720 787", address: "Dresselstraße, 63 10457 Berlin", household: budapest_household)
+matthias_classmate = Contact.create(title: "Matthias (classmate)", name: "Matthias Schmidt", phone: "0049 107 348 700", address: "Flatowallee 78,12987 Berlin", household: budapest_household)
+teacher = Contact.create(title: "Teacher", name: "Johanna Logan", phone: "0049 123 274 984", address: "Am Heidebusch 86, 13492 Berlin", household: budapest_household)
+electrician = Contact.create(title: "Electrician", name: "Myrtle Haines", phone: "0049 234 719 782", address: "Glockenturmstraße 9, 13187 Berlin", household: budapest_household)
+lawyer = Contact.create(title: "Lawyer", name: "Hussein Farmer", phone: "0049 175 234 523", address: "Gloedenpfad 5, 13187 Berlin", household: budapest_household)
 
 # 7 KIDS
 puts "creating kids"
