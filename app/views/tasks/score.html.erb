@@ -1,13 +1,21 @@
-<h1>Score page</h1>
+<div class="container task-details-header">
+  <h1>Your scores</h1>
+</div>
 
 
-<p>Your current score is <%= @user_tasks.pluck(:points).sum %></p>
+<div class="task-name-card-user1">
+  <p>Your current score is <%= @user_tasks.pluck(:points).sum %></p>
+</div>
+<div class="task-name-card-user2">
 <p>Your partner's score is <%= @partner_tasks.pluck(:points).sum%></p>
+</div>
+<div class="task-name-card-unassigned">
 <p>There are <%=@unassigned_tasks.pluck(:points).sum %> to play for 😎 </p>
 <% chart = {
-  user_points: @user_tasks.pluck(:points).sum,
-  partner_points: @partner_tasks.pluck(:points).sum,
-  open_points: @unassigned_tasks.pluck(:points).sum
+  "You": @user_tasks.pluck(:points).sum,
+  "Your partner": @partner_tasks.pluck(:points).sum,
+  "Open points": @unassigned_tasks.pluck(:points).sum
 } %>
+</div>
 
-<%= pie_chart chart%>
+<%= pie_chart(chart, colors: ['#9534E0', '#F09206', '#808080'])%>
