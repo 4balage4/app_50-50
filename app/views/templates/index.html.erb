@@ -6,10 +6,7 @@
   <div>
     <% @templates.each do |template| %>
       <%= link_to template_path(template) do %>
-        <div class="task-card">
-          <h4><%= template.name %></h4>
-          <p><%= template.points ? "#{template.points}p" : ""%></p>
-        </div>
+        <%= render "template", template: template %>
       <% end %>
     <% end %>
   </div>

@@ -7,4 +7,5 @@ class Task < ApplicationRecord
   belongs_to :assigned_to, class_name: "User", optional: true
   validates :name, presence: true
   validates :category, presence: true
+  validates :points, presence: true
 end
