@@ -5,14 +5,11 @@ import { popper } from "@popperjs/core"
 // Connects to data-controller="mark"
 export default class extends Controller {
   static targets = ["submit", "form", "task"]
-  connect() {
-    console.log("new controller")
-  }
 
   check(event) {
     // this.formTarget.submit()
     // console.log(event)
-    // console.log(this.taskTarget)
+
     // event.preventDefault()
     const url = this.formTarget.action
   fetch(url, {

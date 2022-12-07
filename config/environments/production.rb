@@ -94,5 +94,4 @@ Rails.application.configure do
 
   # redirection from http to https
   config.force_ssl = true
-
 end

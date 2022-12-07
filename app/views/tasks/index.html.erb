@@ -44,46 +44,64 @@
       <%= submit_tag "Search", class: "btn btn-flat" %>
     <% end %>
   </div>
+  <div class="container d-flex" data-filter-tasks-target="allSwitch">
+    <div class="form-check form-switch" >
+      <input data-action="click->filter-tasks#doneAll" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">undone/done</label>
+    </div>
+  </div>
   <div data-filter-tasks-target="allTasks" class="container pl-2 overflow-fix">
     <% @tasks.where(done: false).each do |task| %>
       <%= render "task", task: task %>
     <% end %>
   </div>
   <div data-filter-tasks-target="allTasksA" class="container pl-2 overflow-fix">
-    <div class="done-line"><h4>Done</h4>
-    </div>
     <% @tasks.where(done: true).each do |task| %>
       <%= render "task", task: task %>
     <% end %>
   </div>
 
+   <div class="container d-flex" data-filter-tasks-target="currentUserSwitch">
+    <div class="form-check form-switch">
+      <input data-action="click->filter-tasks#doneCurrentUser" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">undone/done</label>
+    </div>
+  </div>
   <div data-filter-tasks-target="currentUser" class="container pl-2 overflow-fix d-none">
-      <% @tasks.where(assigned_to: current_user).and(@tasks.where(done: false)).each do |task| %>
-        <%= render "task", task: task %>
-      <% end %>
+    <% @tasks.where(assigned_to: current_user).and(@tasks.where(done: false)).each do |task| %>
+      <%= render "task", task: task %>
+    <% end %>
   </div>
   <div data-filter-tasks-target="currentUserA" class="container pl-2 overflow-fix d-none">
-    <div class="done-line"><h4>Done</h4>
-    </div>
-      <% @tasks.where(assigned_to: current_user).and(@tasks.where(done: true)).each do |task| %>
-        <%= render "task", task: task %>
-      <% end %>
+    <% @tasks.where(assigned_to: current_user).and(@tasks.where(done: true)).each do |task| %>
+      <%= render "task", task: task %>
+    <% end %>
   </div>
 
 
+   <div class="container d-flex" data-filter-tasks-target="userPartnerSwitch">
+    <div class="form-check form-switch">
+      <input data-action="click->filter-tasks#doneUserPartner" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">undone/done</label>
+    </div>
+  </div>
   <div data-filter-tasks-target="userPartner" class="container pl-2 overflow-fix d-none">
       <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: false)).each do |task| %>
         <%= render "task", task: task %>
       <% end %>
   </div>
   <div data-filter-tasks-target="userPartnerA" class="container pl-2 overflow-fix d-none">
-    <div class="done-line"><h4>Done</h4>
-    </div>
       <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: true)).each do |task| %>
         <%= render "task", task: task %>
       <% end %>
   </div>
 
+   <div class="container d-flex" data-filter-tasks-target="unassignedSwitch">
+    <div class="form-check form-switch ">
+      <input data-action="click->filter-tasks#doneUnassigned" class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+      <label class="form-check-label" for="flexSwitchCheckDefault">undone/done</label>
+    </div>
+  </div>
   <div data-filter-tasks-target="unassigned" class="container pl-2 overflow-fix d-none">
     <% @tasks.where(assigned_to: nil).and(@tasks.where(done: false)).each do |task| %>
     <%= render "task", task: task %>
