@@ -4,15 +4,21 @@
 
 <div class="container">
   <div class= "main-card">
-    <div class="template-name-card justify-content-center">
-      <h4><%= @template.name %></h4>
-    </div>
+    <%= render "template", template: @template %>
+    <% category_hash = {
+      "Groceries" => "🥕",
+      "Care" => "🐣",
+      "Cleaning" => "🧽",
+      "Paperwork" => "📄",
+      "Planning" => "📅",
+      "Maintenance" => "💡"
+    } %>
     <div class="template-details">
       <ul>
-        <li>Points: <span class="detail"><%=@template.points %></span></li>
-        <li>Duration: <span class="detail"><%=@template.duration %></span></li>
-        <li>Comments: <span class="detail"><%=@template.comments %></span></li>
-        <li>Category: <span class="detail"><%=@template.category.name %></span></li>
+        <li>Points: <span class="template-detail"><%=@template.points %></span></li>
+        <li>Duration: <span class="template-detail"><%=@template.duration %></span></li>
+        <li>Comments: <span class="template-detail"><%=@template.comments %></span></li>
+        <li>Category: <span class="template-detail"><%= category_hash[@template.category.name] %> <%= @template.category.name %></span></li>
       </ul>
     </div>
   </div>
