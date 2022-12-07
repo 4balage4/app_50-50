@@ -24,7 +24,8 @@
     <% end %>
   </div>
   <div data-filter-tasks-target="allTasksA" class="container pl-2 overflow-fix">
-    <h4>Done</h4>
+    <div class="done-line"><h4>Done</h4>
+    </div>
     <% @tasks.where(done: true).each do |task| %>
       <%= render "task", task: task %>
     <% end %>
@@ -50,22 +51,24 @@
       <% end %>
   </div>
   <div data-filter-tasks-target="userPartnerA" class="container pl-2 overflow-fix d-none">
-      <h4>Done</h4>
+    <div class="done-line"><h4>Done</h4>
+    </div>
       <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: true)).each do |task| %>
         <%= render "task", task: task %>
       <% end %>
   </div>
 
   <div data-filter-tasks-target="unassigned" class="container pl-2 overflow-fix d-none">
-        <% @tasks.where(assigned_to: nil).and(@tasks.where(done: false)).each do |task| %>
-        <%= render "task", task: task %>
-        <% end %>
+    <% @tasks.where(assigned_to: nil).and(@tasks.where(done: false)).each do |task| %>
+    <%= render "task", task: task %>
+    <% end %>
   </div>
   <div data-filter-tasks-target="unassignedtask" class="container pl-2 overflow-fix d-none">
-      <h4>Done</h4>
-        <% @tasks.where(assigned_to: nil).and(@tasks.where(done: true)).each do |task| %>
-        <%= render "task", task: task %>
-        <% end %>
+    <div class="done-line"><h4>Done</h4>
+    </div>
+      <% @tasks.where(assigned_to: nil).and(@tasks.where(done: true)).each do |task| %>
+      <%= render "task", task: task %>
+      <% end %>
   </div>
 
 </div>
