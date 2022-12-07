@@ -1,6 +1,12 @@
 class TemplatesController < ApplicationController
   def index
     @templates = policy_scope(Template)
+    if params[:query].present?
+      sql_query = "templates.name ILIKE :query OR categories.name ILIKE :query"
+      @templates = Template.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @templates = policy_scope(Template)
+    end
   end
 
   def show

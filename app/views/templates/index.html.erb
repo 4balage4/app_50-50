@@ -3,6 +3,16 @@
 </div>
 
 <div class="container pl-2 overflow-fix">
+  <div class="search overflow-fix sticky-top mt-3 pt-2">
+      <%= form_with url: templates_path, method: :get, class: "d-flex" do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "find template"
+        %>
+        <%= submit_tag "Search", class: "btn btn-flat" %>
+      <% end %>
+  </div>
   <div>
     <% @templates.each do |template| %>
       <%= link_to template_path(template) do %>
