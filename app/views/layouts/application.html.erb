@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>App5050</title>
+    <link rel="manifest" href="<%= asset_path 'manifest.json' %>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Major+Mono+Display&display=swap" rel="stylesheet">
-
+    <%= render 'shared/ios_pwa_links' %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
