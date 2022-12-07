@@ -1,6 +1,12 @@
 class TasksController < ApplicationController
   def index
     @tasks = policy_scope(Task)
+    if params[:query].present?
+      sql_query = "tasks.name ILIKE :query OR categories.name ILIKE :query"
+      @tasks = Task.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @tasks = policy_scope(Task)
+    end
   end
 
   def show
