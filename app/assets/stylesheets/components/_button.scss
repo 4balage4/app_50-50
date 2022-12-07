@@ -14,10 +14,10 @@
 
 
 .btn-flat, .btn-add {
-  color: black;
+  color: #4A4A4A;
   padding: 8px 24px;
   border-radius: 4px;
-  border-color: #909090;
+  border-color: #75CCB9;
   background: #75CCB9;
   transition: background 0.3s ease;
   font-family: 'Poppins';
@@ -26,7 +26,7 @@
 }
 
 .btn-flat:hover, .btn-add:hover, .btn-menu:hover {
-  background: #5870CB;
+  background: #A5FAEA;
   color: black;
 }
 
@@ -64,6 +64,7 @@ border-color: #A5FAEA;
 padding: 8px, 24px;
 transition: background 0.3s ease;
 font-family: 'Poppins';
+min-width: 75px;
 
 }
 
@@ -84,6 +85,10 @@ font-family: 'Poppins';
   p {
     margin: 0;
   }
+}
+
+.button-container {
+  background-color: #F4F4F4;
 }
 
 
