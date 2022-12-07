@@ -25,14 +25,13 @@ class TasksController < ApplicationController
     user_ids = current_user.household.users.pluck(:id)
     user_ids.delete(current_user.id)
     partner_id = user_ids.first
-    @partner_tasks = User.find(partner_id).tasks.where(done: true)
+    @tasks = Task.all
+    @partner_tasks = @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: true))
     @unassigned_tasks = Task.where(household_id: current_user.household_id).and(Task.where(assigned_to_id: nil))
 
     authorize @user_tasks
     authorize @partner_tasks
     authorize @unassigned_tasks
-
-
   end
 
   def new

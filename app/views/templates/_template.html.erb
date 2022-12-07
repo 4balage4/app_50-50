@@ -1,0 +1,21 @@
+<div class="task-card">
+  <div class="task-infos">
+    <% category_hash = {
+      "Groceries" => "🥕",
+      "Care" => "🐣",
+      "Cleaning" => "🧽",
+      "Paperwork" => "📄",
+      "Planning" => "📅",
+      "Maintenance" => "💡"
+    } %>
+    <p><span><%= category_hash[template.category.name] %>  </span> <%= template.category.name %></p>
+    <div class="task-circles">
+      <div class="task-points">
+        <p><%= template.points %></p>
+      </div>
+    </div>
+  </div>
+  <div class="task-name" >
+    <h4><%= template.name %></h4>
+  </div>
+</div>

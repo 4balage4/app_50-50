@@ -8,7 +8,7 @@
         "Planning" => "📅",
         "Maintenance" => "💡"
       } %>
-      <p><span><%= category_hash[task.category.name] %> </span><%= task.category.name %></p>
+      <p><span><%= category_hash[task.category.name] %>  </span> <%= task.category.name %></p>
       <div class="task-circles">
         <div class="task-points">
           <p><%= task.points %></p>
@@ -23,7 +23,7 @@
         class: "",
           data: { mark_target: "form" }
         } do |f| %>
-        <%= f.input :done, label: false, input_html: { data: { action: "change->mark#check" } } %>
+        <%= f.input :done, label: false, input_html: { data: { action: "change->mark#check" }, class: "task-checkbox" } %>
       <% end %>
       <%= link_to(task_path(task)) do %>
         <h4><%= task.name %></h4>
