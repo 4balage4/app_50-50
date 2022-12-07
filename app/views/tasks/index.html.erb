@@ -1,17 +1,17 @@
 <div class="main-div" data-controller="filter-tasks">
-  <div class="container d-flex justify-content-center flex-grow sticky-top pt-3">
+  <div class="button-container container d-flex justify-content-center flex-grow sticky-top pt-3 pb-3">
     <div class="button-box d-flex flex-grow">
       <div class="btn btn-menu btn-active" data-filter-tasks-target="navButton">
-        <p data-action="click->filter-tasks#show" class="all"> all</p>
+        <p data-action="click->filter-tasks#show" class="all"> All</p>
       </div>
       <div class="btn btn-menu" data-filter-tasks-target="navButton">
-        <p data-action="click->filter-tasks#show" class="user"> <%= current_user.username %></p>
+        <p data-action="click->filter-tasks#show" class="user"> <%= current_user.username.capitalize %></p>
       </div>
       <div class="btn btn-menu" data-filter-tasks-target="navButton">
-        <p data-action="click->filter-tasks#show" class="partner"><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username %></p>
+        <p data-action="click->filter-tasks#show" class="partner"><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username.capitalize %></p>
       </div>
       <div class="btn btn-menu" data-filter-tasks-target="navButton">
-        <p data-action="click->filter-tasks#show" class="open"> open</p>
+        <p data-action="click->filter-tasks#show" class="open"> Open</p>
       </div>
     </div>
   </div>
@@ -24,7 +24,7 @@
     <% end %>
   </div>
   <div data-filter-tasks-target="allTasksA" class="container pl-2 overflow-fix">
-    <h3>done</h3>
+    <h4>Done</h4>
     <% @tasks.where(done: true).each do |task| %>
       <%= render "task", task: task %>
     <% end %>
@@ -36,7 +36,8 @@
       <% end %>
   </div>
   <div data-filter-tasks-target="currentUserA" class="container pl-2 overflow-fix d-none">
-      <p>done</p>
+    <div class="done-line"><h4>Done</h4>
+    </div>
       <% @tasks.where(assigned_to: current_user).and(@tasks.where(done: true)).each do |task| %>
         <%= render "task", task: task %>
       <% end %>
@@ -49,7 +50,7 @@
       <% end %>
   </div>
   <div data-filter-tasks-target="userPartnerA" class="container pl-2 overflow-fix d-none">
-      <p>Done</p>
+      <h4>Done</h4>
       <% @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: true)).each do |task| %>
         <%= render "task", task: task %>
       <% end %>
@@ -61,7 +62,7 @@
         <% end %>
   </div>
   <div data-filter-tasks-target="unassignedtask" class="container pl-2 overflow-fix d-none">
-      <p>Done</p>
+      <h4>Done</h4>
         <% @tasks.where(assigned_to: nil).and(@tasks.where(done: true)).each do |task| %>
         <%= render "task", task: task %>
         <% end %>
