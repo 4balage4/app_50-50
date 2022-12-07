@@ -111,7 +111,7 @@ users.each do |user|
   call_plumber = Task.create(name: "Call plumber", points: 12, duration: "", type: "", comments: "", category: maintenance, user: household_options.sample, household: user.household, assigned_to: household_options.sample)
   fix_kitchen_chair = Task.create(name: "Fix kitchen chair", points: 18, duration: "", type: "", comments: "", category: maintenance, user: household_options.sample, household: user.household, assigned_to: household_options.sample)
   bday_gift = Task.create(name: "Buy bday gift Suzanne", points: 15, duration: "", type: "", comments: "", category: care, user: household_options.sample, household: user.household, assigned_to: household_options.sample)
-  groceries = Task.create(name: "Groceries", points: 15, duration: "", type: "", comments: "", category: groceries, user: household_options.sample, household: user.household)
+  shopping = Task.create(name: "Groceries", points: 15, duration: "", type: "", comments: "", category: groceries, user: household_options.sample, household: user.household)
   bake_bday_cake = Task.create(name: "Make bday cake", points: 17, duration: "", type: "", comments: "", category: care, user: household_options.sample, household: user.household)
   parents_meeting = Task.create(name: "Attend parents meeting", points: 15, duration: "", type: "", comments: "", category: care, user: household_options.sample, household: user.household)
   fix_kids_coat = Task.create(name: "fix Kid's coat", points: 12, duration: "", type: "", comments: "", category: maintenance, user: household_options.sample, household: user.household)
