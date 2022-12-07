@@ -1,32 +1,32 @@
-<div class="task-card" data-controller="mark" data-mark-target="task">
-    <div class="task-infos">
-      <% category_hash = {
-        "Groceries" => "🥕",
-        "Care" => "🐣",
-        "Cleaning" => "🧽",
-        "Paperwork" => "📄",
-        "Planning" => "📅",
-        "Maintenance" => "💡"
-      } %>
-      <p><span><%= category_hash[task.category.name] %>  </span> <%= task.category.name %></p>
-      <div class="task-circles">
-        <div class="task-points">
-          <p><%= task.points %></p>
-        </div>
-        <div class="assigned_to" style="background-color: <%= task.assigned_to.nil? ? 'grey' : task.assigned_to.color %>">
-          <p><%= task.assigned_to.nil? ? "?" : task.assigned_to.username[0] %></p>
-        </div>
+<div class='<%= task.done? ? "task-card-completed" : "task-card" %>' data-controller="mark" data-mark-target="task">
+  <div class="task-infos">
+    <% category_hash = {
+      "Groceries" => "🥕",
+      "Care" => "🐣",
+      "Cleaning" => "🧽",
+      "Paperwork" => "📄",
+      "Planning" => "📅",
+      "Maintenance" => "💡"
+    } %>
+    <p><span><%= category_hash[task.category.name] %>  </span> <%= task.category.name %></p>
+    <div class="task-circles">
+      <div class="task-points">
+        <p><%= task.points %></p>
+      </div>
+      <div class="assigned_to" style="background-color: <%= task.assigned_to.nil? ? 'grey' : task.assigned_to.color %>">
+        <p><%= task.assigned_to.nil? ? "?" : task.assigned_to.username[0] %></p>
       </div>
     </div>
-    <div class="task-name" >
-      <%= simple_form_for task, html: {
-        class: "",
-          data: { mark_target: "form" }
-        } do |f| %>
-        <%= f.input :done, label: false, input_html: { data: { action: "change->mark#check" }, class: "task-checkbox" } %>
-      <% end %>
-      <%= link_to(task_path(task)) do %>
-        <h4><%= task.name %></h4>
-      <% end %>
-    </div>
+  </div>
+  <div class="task-name" >
+    <%= simple_form_for task, html: {
+      class: "",
+        data: { mark_target: "form" }
+      } do |f| %>
+      <%= f.input :done, label: false, input_html: { data: { action: "change->mark#check" }, class: "task-checkbox" } %>
+    <% end %>
+    <%= link_to(task_path(task)) do %>
+      <h4><%= task.name %></h4>
+    <% end %>
+  </div>
 </div>
