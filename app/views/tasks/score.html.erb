@@ -3,12 +3,12 @@
 </div>
 
 
-<div class="task-name-card-user1">
-  <p>Your current score is <%= @user_tasks.pluck(:points).sum %></p>
-</div>
-<div class="task-name-card-user2">
-<p>Your partner's score is <%= @partner_tasks.pluck(:points).sum%></p>
-</div>
+<span class="task-name-card-user1">
+  <p><%= current_user.username[0] %> : <%= @user_tasks.pluck(:points).sum %></p>
+</span>
+<span class="task-name-card-user2">
+<p><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username[0] %> : <%= @partner_tasks.pluck(:points).sum%></p>
+</span>
 <div class="task-name-card-unassigned">
 <p>There are <%=@unassigned_tasks.pluck(:points).sum %> to play for 😎 </p>
 <% chart = {
