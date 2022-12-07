@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
     @contacts = policy_scope(Contact)
     if params[:query].present?
       sql_query = "title ILIKE :query OR name ILIKE :query"
-      @contacts = Contact.where(sql_query, query: "%#{params[:query]}%")
+      @contacts = policy_scope(Contact.where(sql_query, query: "%#{params[:query]}%"))
     else
       @contacts = policy_scope(Contact)
     end
