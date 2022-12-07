@@ -189,11 +189,10 @@
 .hello{
   height: 130px;
   padding-top:30px;
-  padding-left: 30px;
 
   h1 {
     font-family: 'DM Serif Display', serif;
-    margin: 0px;
+    margin: 0 0 0 30px;
     font-size: 48px;
     color: #5B5B5B;
   }
@@ -217,5 +216,88 @@
 .done-line {
   border-top: solid 2px;
   border-color: #5B5B5B;
+}
 
+.task-card-completed {
+  background: #056d1d;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 12px auto 12px;
+  text-decoration: none;
+  flex-wrap: wrap;
+
+  h4 {
+
+    font-family: 'Poppins';
+    font-size: 20px;
+    color: whitesmoke;
+    // margin: 4px;
+    font-weight: bolder;
+    margin-bottom: 8px;
+    margin-left: 4px;
+  }
+
+  p {
+
+    font-weight: lighter;
+    color: whitesmoke;
+    margin: 0px;
+    font-family:'Poppins';
+    text-decoration: none;
+  }
+
+  a{
+    color: whitesmoke;
+    text-decoration: none;
+  }
+
+  .width-fix {
+    width: max-content !important;
+  }
+}
+
+//index page stats
+
+.hello-names{
+  display: flex;
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  .hello-user{
+    width: 50%;
+    background-color: #9534E0;
+    border-radius: 5px;
+    margin: 2px;
+  }
+
+  .hello-partner{
+    width: 50%;
+    background-color: #F09206;
+    border-radius: 5px;
+    margin: 2px;
+  }
+}
+
+.hello-stat-names{
+  display: flex;
+
+  p {
+    margin: 0;
+    text-align: center;
+  }
+
+  .hello-stat-user{
+    background-color: #9534E0;
+    border-radius: 5px;
+    margin: 2px;
+  }
+
+  .hello-stat-partner{
+    background-color: #F09206;
+    border-radius: 5px;
+    margin: 2px;
+  }
 }

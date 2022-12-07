@@ -15,8 +15,24 @@
       </div>
     </div>
   </div>
-<div class="hello">
+<div class="hello container">
   <h1>Hello <%= current_user.username %>!</h1>
+  <div class="hello-names">
+    <div class="hello-user">
+      <p><%= current_user.username %></p>
+    </div>
+    <div class="hello-partner">
+      <p><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username.capitalize %></p>
+    </div>
+  </div>
+  <div class="hello-stat-names" >
+    <div class='<%="hello-stat-user width-30%"%>'>
+      <p><%= current_user.username %></p>
+    </div>
+    <div class='<%="hello-stat-partner width-70%"%>'>
+      <p><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username.capitalize %></p>
+    </div>
+  </div>
 </div>
   <div class="container search overflow-fix mt-3 pt-2">
     <%= form_with url: tasks_path, method: :get, class: "d-flex" do %>

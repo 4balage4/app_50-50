@@ -1,16 +1,18 @@
 import { Controller } from "@hotwired/stimulus"
+import { popper } from "@popperjs/core"
 
 
 // Connects to data-controller="mark"
 export default class extends Controller {
   static targets = ["submit", "form", "task"]
   connect() {
-    console.log("hello")
+    console.log("new controller")
   }
 
   check(event) {
     // this.formTarget.submit()
-    console.log(event)
+    // console.log(event)
+    // console.log(this.taskTarget)
     // event.preventDefault()
     const url = this.formTarget.action
   fetch(url, {
@@ -20,7 +22,10 @@ export default class extends Controller {
   })
     .then(response => response.text())
     .then((data) => {
+      // this.popTarget.classList.remove("d-none")
       this.taskTarget.outerHTML = data
+      // setTimeout(3)
+      // this.popTarget.classList.add("d-none")
     })
   }
 }
