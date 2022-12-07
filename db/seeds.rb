@@ -24,7 +24,7 @@ budapest_household = Household.create(name: "Budapest")
 
 # USERS' COLORS
 # colors = [user_one, user_two]
-user_one = "#FFE609"
+user_one = "#9534E0"
 user_two = "#F09206"
 
 # 6 USERS
