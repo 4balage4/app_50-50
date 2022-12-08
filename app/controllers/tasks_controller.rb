@@ -7,6 +7,14 @@ class TasksController < ApplicationController
     else
       @tasks = policy_scope(Task)
     end
+    #for bar chart:
+    user_ids = current_user.household.users.pluck(:id)
+    user_ids.delete(current_user.id)
+    partner_id = user_ids.first
+    all_tasks = Task.all
+    # @user_tasks = current_user.tasks.where(done: true)
+    @user_tasks = all_tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == partner_id }[0]).and(all_tasks.where(done: true))
+    @partner_tasks = all_tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(all_tasks.where(done: true))
   end
 
   def show
@@ -27,11 +35,12 @@ class TasksController < ApplicationController
   end
 
   def score
-    @user_tasks = current_user.tasks.where(done: true)
     user_ids = current_user.household.users.pluck(:id)
     user_ids.delete(current_user.id)
     partner_id = user_ids.first
     @tasks = Task.all
+    # @user_tasks = current_user.tasks.where(done: true)
+    @user_tasks = @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == partner_id }[0]).and(@tasks.where(done: true))
     @partner_tasks = @tasks.where(assigned_to: current_user.household.users.reject { |user| user.id == current_user.id }[0]).and(@tasks.where(done: true))
     @unassigned_tasks = Task.where(household_id: current_user.household_id).and(Task.where(assigned_to_id: nil))
 

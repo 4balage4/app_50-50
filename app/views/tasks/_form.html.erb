@@ -10,10 +10,10 @@
       </div>
     <%= f.association :contact, collection: Contact.where(household: current_user.household).map {|contact|[contact.title, contact.id]} %>
     <%= f.association :category, collection: Category.all, error: 'You must choose one category', prompt: "Select a category"%>
-    <%= f.association :assigned_to, collection: User.where(household: current_user.household).map{ |user| [user.username, user.id]}%>
+    <%= f.association :assigned_to, collection: User.where(household: current_user.household).map{ |user| [user.username, user.id]}, prompt: "unassigned"%>
     <div class="d-flex w-100 justify-content-around align-items-center">
 
-      <%= link_to templates_path do %><i class="form-button fa-solid fa-chevron-left fa-lg"></i>
+      <%= link_to tasks_path do %><i class="form-button fa-solid fa-chevron-left fa-lg"></i>
       <% end  %>
         <%= f.submit :"Save", class: "btn btn-add mt-1" %>
       <%= link_to tasks_path do %><i class="form-button fa-solid fa-trash fa-lg"></i>
