@@ -17,7 +17,7 @@
   </div>
 <div class="hello container">
   <h1>Hello <%= current_user.username %>!</h1>
-  <div class="hello-names">
+  <div class="hello-names d-none">
     <div class="hello-user">
       <p><%= current_user.username %></p>
     </div>
@@ -26,11 +26,16 @@
     </div>
   </div>
   <div class="hello-stat-names" >
-    <div class='<%="hello-stat-user width-30%"%>'>
-      <p><%= current_user.username %></p>
+    <% @user_sum = @user_tasks.pluck(:points).sum %>
+    <% @partner_sum = @partner_tasks.pluck(:points).sum%>
+    <% @all_sum = @user_sum + @partner_sum %>
+    <% @user_per = 100*@user_sum/@all_sum %>
+    <% @partner_per = 100*@partner_sum/@all_sum%>
+    <div class="hello-stat-user" style='<%="width: #{@user_per}%"%>'>
+      <p><%= "#{@user_per}%" %></p>
     </div>
-    <div class='<%="hello-stat-partner width-70%"%>'>
-      <p><%= current_user.household.users.reject { |user| user.id == current_user.id }[0].username.capitalize %></p>
+    <div class="hello-stat-partner" style='<%="width: #{@partner_per}%"%>'>
+      <p><%= "#{@partner_per}%" %></p>
     </div>
   </div>
 </div>
