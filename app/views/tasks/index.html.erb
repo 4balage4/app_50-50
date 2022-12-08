@@ -33,8 +33,8 @@
       <% @user_per = 50 %>
       <% @partner_per = 50%>
     <% else %>
-      <% @user_per = 100*@user_sum/@all_sum %>
-      <% @partner_per = 100*@partner_sum/@all_sum%>
+      <% @user_per = (100.0*@user_sum/@all_sum).round %>
+      <% @partner_per = (100.0*@partner_sum/@all_sum).round %>
     <% end %>
     <div class="hello-stat-user" style='<%="width: #{@user_per}%"%>'>
       <p><%= "#{@user_per}%" %></p>
