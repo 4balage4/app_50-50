@@ -68,7 +68,7 @@ lawyer = Contact.create(title: "Lawyer", name: "Hussein Farmer", phone: "0049 17
 pediatrician = Contact.create(title: "Pediatrician", name: "Kristin Klein", phone: "0049 175 567 245", address: "Nürnberger Straße 23, 13467 Berlin", household: budapest_household)
 midwife = Contact.create(title: "Midwife", name: "Pippa Schultz", phone: "0049 138 674 789", address: "Nussbaumallee 167, 10367 Berlin", household: budapest_household)
 plumber = Contact.create(title: "Plumber", name: "Björn Graff", phone: "0049 134 274 239", address: "Am Fliederbusch 45, 12867paulinein", household: budapest_household)
-sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12russels", household: budapest_household)
+sophie_classmate = Contact.create(title: "Sophie (classmate)", name: "Sophie Meyer", phone: "0049 176 284 728", address: "Am Glockenturm 12, 12", household: budapest_household)
 football_club = Contact.create(title: "Football club", name: "Football club Pankow", phone: "0049 145 334 079", address: "Cicerostraße 2, 10457 Berlin", household: budapest_household)
 primary_school = Contact.create(title: "Primary school", name: "Rosa Luxemburg Schule", phone: "0049 1756225 723", address: "Am Heidebusch 86, 13492 Berlin", household: budapest_household)
 babysitter = Contact.create(title: "Babysitter", name: "Alessia Williamson", phone: "0049 175 034 780", address: "Clausewitzstraße 83,10367 Berlin", household: budapest_household)
@@ -127,7 +127,7 @@ feed_cat = Task.create(name: "Feed Garfield", points: 13, duration: "", type: ""
 bed_story = Task.create(name: "Read bed story to Tom", points: 15, duration: "", type: "", comments: "", category: care, user: balazs, household: budapest_household, assigned_to: balazs)
 fix_kids_coat = Task.create(name: "Fix Tom's coat", points: 12, duration: "", type: "", comments: "Two buttons missing and patch hole in arm sleve", category: maintenance, user: balazs, household: budapest_household)
 fix_kitchen_chair = Task.create(name: "Fix kitchen chair", points: 18, duration: "", type: "", comments: "", category: maintenance, user: balazs, household: budapest_household, assigned_to: balazs_partner)
-prepare_football_equipment = Task.create(name: "Prepare Tom's football equipment", points: 18, duration: "", type: "", comments: "", category: care, user: balazs, household: budapest_household, assigned_to: balazs)
+prepare_football_equipment = Task.create(name: "Prepare Tom's football equipment", points: 4, duration: "", type: "", comments: "", category: care, user: balazs, household: budapest_household, assigned_to: balazs)
 buy_bread = Task.create(name: "Buy bread", points: 3, duration: "", type: "", comments: "", category: care, user: balazs, household: budapest_household, assigned_to: balazs_partner)
 # Berlin
 buy_bags_vacum_cleaner = Task.create(name: "Buy bags for vacum cleaner", points: 12, duration: "", type: "", comments: "Model Swirl ROB 1", category: maintenance, user: linus, household: berlin_household, assigned_to: linus)
@@ -138,7 +138,7 @@ feed_cat = Task.create(name: "Feed Garfield", points: 13, duration: "", type: ""
 bed_story = Task.create(name: "Read bed story to Tom", points: 15, duration: "", type: "", comments: "", category: care, user: linus, household: berlin_household, assigned_to: linus)
 fix_kids_coat = Task.create(name: "Fix Tom's coat", points: 12, duration: "", type: "", comments: "Two buttons missing and patch hole in arm sleve", category: maintenance, user: linus, household: berlin_household)
 fix_kitchen_chair = Task.create(name: "Fix kitchen chair", points: 18, duration: "", type: "", comments: "", category: maintenance, user: linus, household: berlin_household, assigned_to: linus_partner)
-prepare_football_equipment = Task.create(name: "Prepare Tom's football equipment", points: 18, duration: "", type: "", comments: "", category: care, user: linus, household: berlin_household, assigned_to: linus)
+prepare_football_equipment = Task.create(name: "Prepare Tom's football equipment", points: 4, duration: "", type: "", comments: "", category: care, user: linus, household: berlin_household, assigned_to: linus)
 buy_bread = Task.create(name: "Buy bread", points: 3, duration: "", type: "", comments: "", category: care, user: linus, household: berlin_household, assigned_to: linus_partner)
 # Brussels
 buy_bags_vacum_cleaner = Task.create(name: "Buy bags for vacum cleaner", points: 12, duration: "", type: "", comments: "Model Swirl ROB 1", category: maintenance, user: pauline, household: brussels_household, assigned_to: pauline)
@@ -149,7 +149,7 @@ feed_cat = Task.create(name: "Feed Garfield", points: 13, duration: "", type: ""
 bed_story = Task.create(name: "Read bed story to Tom", points: 15, duration: "", type: "", comments: "", category: care, user: pauline, household: brussels_household, assigned_to: pauline)
 fix_kids_coat = Task.create(name: "Fix Tom's coat", points: 12, duration: "", type: "", comments: "Two buttons missing and patch hole in arm sleve", category: maintenance, user: pauline, household: brussels_household)
 fix_kitchen_chair = Task.create(name: "Fix kitchen chair", points: 18, duration: "", type: "", comments: "", category: maintenance, user: pauline, household: brussels_household, assigned_to: linus_partner)
-prepare_football_equipment = Task.create(name: "Prepare Tom's football equipment", points: 18, duration: "", type: "", comments: "", category: care, user: pauline, household: brussels_household, assigned_to: pauline)
+prepare_football_equipment = Task.create(name: "Prepare Tom's football equipment", points: 4, duration: "", type: "", comments: "", category: care, user: pauline, household: brussels_household, assigned_to: pauline)
 buy_bread = Task.create(name: "Buy bread", points: 3, duration: "", type: "", comments: "", category: care, user: pauline, household: brussels_household, assigned_to: pauline_partner)
 
 puts "creating templates"
