@@ -14,9 +14,8 @@
 <% chart = {
   "You": @user_tasks.pluck(:points).sum,
   "Your partner": @partner_tasks.pluck(:points).sum,
-  "Open points": @unassigned_tasks.pluck(:points).sum
 } %>
 </div>
 
-<%= pie_chart(chart, colors: ['#9534E0', '#F09206', '#808080'])%>
+<%= pie_chart(chart, colors: ['#9534E0', '#F09206'])%>
 <div style="height: 120px"></div>
