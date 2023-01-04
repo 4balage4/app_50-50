@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: "tasks#index"
+    root to: "pages#home"
+    # root to: "tasks#index"
+
   get "score", to: "tasks#score", as: :score
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :tasks do
